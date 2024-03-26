@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html lang="en" view-mode="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+
+    <link rel="icon" href="assets/img/favicon.ico">
+
+    <title>Affan - PWA Mobile HTML Template | Documentation</title>
+
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/font-awesome.min.css" rel="stylesheet">
+    <link href="assets/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="header-area shadow-sm border-bottom bg-white">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-6">
+                    <div class="logo">
+                        <img src="assets/img/logo-dark.png" alt="">
+                    </div>
+                </div>
+
+                <div class="col-6">
+                    <div class="buy-now-btn text-end">
+                        <a href="https://themeforest.net/item/affan-pwa-mobile-html-template/29715548" target="_blank"
+                            class="btn btn-primary fz-14">Buy Again</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-4 col-lg-3 d-none d-md-block">
+                    <div id="sticker" class="sidenav-wrap bg-white border shadow-sm p-4 rounded-3">
+                        <nav id="onePageNav">
+                            <ul class="ps-0 nav flex-column">
+                                <li><a href="#introduction">Introduction</a></li>
+                                <li><a href="#fileStructure">Files Structure</a></li>
+                                <li><a href="#developementSetup">Development Setup</a>
+                                    <ul class="ps-4">
+                                        <li><a href="#codeEditor">Code Editor</a></li>
+                                        <li><a href="#installation">Installation &amp; Run Gulp</a></li>
+                                        <li><a href="#knowFileType">Know file type </a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#customize">Customize</a>
+                                    <ul class="ps-4">
+                                        <li><a href="#beforeStarted">Before Started</a></li>
+                                        <li><a href="#scssFiles">SCSS &amp; PUG files</a></li>
+                                        <li><a href="#basicCustomization">Basic Customization</a></li>
+                                        <li><a href="#pwa">Customize PWA</a></li>
+                                        <li><a href="#darkMode">Dark &amp; RTL Mode</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#compliedFiles">Customize with Complied Files</a></li>
+                                <li><a href="#3rdParty">Third Party Plugins Activation</a></li>
+                                <li><a class="mb-0" href="#credits">Credits &amp; Changelog</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-8 col-lg-9">
+                    <h2 class="mb-5 display-5 fw-bold big-title">Development Guide</h2>
+
+                    <!-- Intro -->
+                    <div class="card border-0 mb-5 bg-light" id="introduction">
+                        <div class="card-body">
+                            <span class="badge bg-primary mb-2">Documentation - v1.2</span>
+                            <h3 class="mb-4 fw-bold">Affan - PWA Mobile HTML Template</h3>
+
+                            <div class="alert alert-warning mb-0 border-0 border-start border-warning border-5">
+                                <strong class="mb-2 d-inline-block">The Affan is a Static HTML5 Template:</strong> <br>
+                                We do not provide any documentation or email support on how to integrate with any CMS
+                                (such as WordPress, Joomla, etc.) or frameworks (such as Angular, Vue, React, Laravel
+                                etc.).
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Help -->
+                    <div class="card border-0 mb-5 bg-light">
+                        <div class="card-body">
+                            <h3 class="mb-3 fw-bold">Get Help</h3>
+                            <p>Thank you for purchased our item(s). If you have any questions that are beyond the scope
+                                of this help file, please feel free to email via support page <a class="fw-bold"
+                                    href="https://themeforest.net/item/affan-pwa-mobile-html-template/29715548/support">here</a>.
+                                Thank you so much!</p>
+
+                            <div class="alert alert-info mb-0 border-0 border-start border-info border-5">
+                                In some cases, you may have to wait 2 working days to get an email answer. However, we
+                                will try to answer you as soon as possible. Replies are sometimes delayed due to
+                                multiple emails and time zone variations.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="border-top w-100 mb-5"></div>
+
+                    <!-- File Structure -->
+                    <div class="card border-0 mb-5 bg-light" id="fileStructure">
+                        <div class="card-body">
+                            <h3 class="mb-3 fw-bold">Files Structure</h3>
+
+                            <ul class="ps-0 files-structure">
+                                <li><i class="fa fa-folder"></i> Affan
+                                    <ul class="ps-4">
+                                        <li><i class="fa fa-folder"></i> dist <span>(compiled distribution files)</span>
+                                        </li>
+                                        <li class="text-muted"><i class="fa fa-folder"></i> node_modules <span>(npm
+                                                dependencies files. It is NOT included in the downloaded file, this
+                                                folder will be installed automatically when you install npm).</span>
+                                        </li>
+                                        <li><i class="fa fa-folder"></i> src <span>(all source files)</span>
+                                            <ul class="ps-4">
+                                                <li><i class="fa fa-folder"></i> pug <span>(all .pug files into this
+                                                        folder)</span></li>
+                                                <li><i class="fa fa-folder"></i> scss <span>(all .scss files into this
+                                                        folder)</span></li>
+                                            </ul>
+                                        </li>
+                                        <li><i class="fa fa-folder"></i> static <span>(all static assets)</span>
+                                            <ul>
+                                                <li><i class="fa fa-folder"></i> img <span>(all images)</span></li>
+                                                <li><i class="fa fa-folder"></i> js <span>(all static .js files)</span>
+                                                </li>
+                                                <li><i class="fa fa-file"></i> manifest.json <span>(manifest file for
+                                                        PWA functions)</span></li>
+                                                <li><i class="fa fa-file"></i> service-worker.js <span>(service worker
+                                                        file for PWA functions)</span></li>
+                                            </ul>
+                                        </li>
+                                        <li><i class="fa fa-file"></i> .browerslistrc</li>
+                                        <li><i class="fa fa-file"></i> changelog.txt</li>
+                                        <li><i class="fa fa-file"></i> gulpfile.js</li>
+                                        <li><i class="fa fa-file"></i> license</li>
+                                        <li><i class="fa fa-file"></i> package.json</li>
+                                        <li class="text-muted"><i class="fa fa-file"></i> package-lock.json <span>(this
+                                                file NOT included in the downloaded file, this file will be
+                                                automatically created when you run gulp)</span></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="border-top w-100 mb-5" id="developementSetup"></div>
+
+                    <!-- Code Editor -->
+                    <div class="card border-0 mb-5 bg-light" id="codeEditor">
+                        <div class="card-body">
+                            <h3 class="mb-3 fw-bold">Code Editor</h3>
+
+                            <p>There are many code editors for web code editing. You can use whatever you want. We
+                                recommend that you use <strong>Visual Studio Code</strong> . Because - this template is
+                                coded using it.</p>
+
+                            <ul class="ps-0">
+                                <li><a class="fz-14" href="http://brackets.io"><i class="fa fa-check"></i> Brackets</a>
+                                </li>
+                                <li><a class="fz-14" href="https://www.sublimetext.com"><i class="fa fa-check"></i>
+                                        Sublime Text</a>
+                                </li>
+                                <li><a class="fz-14" href="https://code.visualstudio.com"><i class="fa fa-check"></i>
+                                        Visual Studio
+                                        Code <span class="badge bg-success">Recommended</span></a></li>
+                                <li><a class="fz-14" href="https://atom.io"><i class="fa fa-check"></i> Atom</a></li>
+                                <li><a class="fz-14" href="https://notepad-plus-plus.org"><i class="fa fa-check"></i>
+                                        Notepad++</a>
+                                </li>
+                                <li><a class="fz-14" href="https://www.jetbrains.com/phpstorm/"><i
+                                            class="fa fa-check"></i> Php
+                                        Storm</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Installation -->
+                    <div class="card border-0 mb-5 bg-light" id="installation">
+                        <div class="card-body">
+                            <h3 class="mb-3 fw-bold">Installation</h3>
+
+                            <div class="alert alert-warning border-0 border-start border-warning border-5">It has a
+                                directory (affan/dist) of compiled files. If you want to edit without source files
+                                (plain HTML/CSS/JS files), you do not need to install anything on your machine.</div>
+
+                            <p>You need to install package files/dependencies for this project if you want to customize
+                                it. To do this, you must have node and npm installed on your computer. Installation
+                                guide of
+                                the node can be found <a href="https://nodejs.org/en/" target="_blank"
+                                    class="text-primary">here</a>.</p>
+                            <p>As npm comes bundled with a node, a separate installation of npm is NOT needed. If you
+                                have installed them, just go to the root folder and run the following command in your
+                                command
+                                prompt or terminal.</p>
+                            <div class="alert alert-light mb-0 border-0 border-start border-primary border-5 shadow-sm">
+                                npm install</div>
+                        </div>
+                    </div>
+
+                    <!-- Gulp -->
+                    <div class="card border-0 mb-5 bg-light">
+                        <div class="card-body">
+                            <h3 class="mb-3 fw-bold">Run Gulp</h3>
+                            <p>Run a command to run Gulp. When you run this command, it also watching at all source and
+                                static files. So, you don't need to run another command to watching these.</p>
+                            <div class="alert alert-light border-0 border-start border-primary border-5 shadow-sm">
+                                npm run gulp</div>
+                            <p>If you want, just watch the source files. You can run another individual command.</p>
+                            <div class="alert alert-light border-0 border-start border-primary border-5 shadow-sm">
+                                npm run gulp watch</div>
+                            <a class="text-decoration-underline fz-14" href="https://www.youtube.com/embed/ET7yhJzdYzg"
+                                target="_blank"><i class="fa fa-external-link"></i> Watch Installation Video</a>
+                        </div>
+                    </div>
+
+                    <!-- File Types -->
+                    <div class="card border-0 mb-5 bg-light" id="knowFileType">
+                        <div class="card-body">
+                            <h3 class="mb-3 fw-bold">Know the file type</h3>
+
+                            <h6 class="fw-bold">Source files:</h6>
+                            <p class="text-muted mb-2 d-block">Source files are files that are processed with template
+                                build tools to make the browser readable. E.g. SCSS &amp; PUG files always source files.
+                            </p>
+                            <p class="fz-14 d-inline-block mb-4">Files location: <code
+                                    class="ms-2 bg-white rounded-3 px-2 fz-14 py-1 shadow-sm">affan > "src"
+                                    folder</code></p>
+
+                            <h6 class="fw-bold">Compiled files:</h6>
+                            <p class="text-muted mb-2 d-block">Compiled files are files generated as a result of running
+                                a compilation process in the source files. E.g. CSS &amp; standard HTML files always
+                                compiled files.</p>
+                            <p class="fz-14 d-inline-block mb-4">Files location: <code
+                                    class="ms-2 bg-white rounded-3 px-2 fz-14 py-1 shadow-sm">affan > "dist"
+                                    folder</code></p>
+
+                            <h6 class="fw-bold">Static files:</h6>
+                            <p class="text-muted mb-2">Static files are ones that aren’t processed or generated. E.g.
+                                Images, Web Icon Fonts and standard HTML are static files.</p>
+                            <p class="fz-14 d-inline-block mb-0">Files location:
+                                <code class="ms-2 bg-white rounded-3 px-2 fz-14 py-1 shadow-sm">affan > "static"
+                                    folder</code></p>
+                        </div>
+                    </div>
+
+                    <div class="border-top w-100 mb-5" id="customize"></div>
+
+                    <!-- Before Started -->
+                    <div class="card border-0 mb-5 bg-light" id="beforeStarted">
+                        <div class="card-body">
+                            <h3 class="mb-3 fw-bold">Before getting started you must read this</h3>
+
+                            <div class="alert alert-light border-0 border-start border-primary border-5 shadow-sm">
+                                <strong class="text-dark mb-1 d-inline-block">Before getting started with a PWA ready
+                                    template, you need to know a very simple thing!</strong> <br> PWA (Progressive Web
+                                App) mainly works with the <strong>"service-worker.js"</strong> file. This file cache
+                                data in your browser for smoothly viewing this website when you're offline.</div>
+
+                            <div class="alert alert-light border-0 border-start border-primary border-5 shadow-sm">
+                                <strong class="text-dark mb-1 d-inline-block">What is the problem with that?</strong>
+                                <br> When you edited the files & script and save it, your changes won't take effect
+                                until clear your browser cache.</div>
+
+                            <div class="alert alert-light border-0 border-start border-primary border-5 shadow-sm">
+                                <strong class="text-dark mb-1 d-inline-block">How to solve this problem?</strong> <br>
+                                Please disconnect "service-worker.js" file, when you are developing your site. Find
+                                "service-worker.js" file in <code class="bg-light">"static" folder >
+                                    "service-worker.js". </code> Comment on all codes or remove this file another
+                                location.
+                            </div>
+
+                            <div class="btn-group-wrap mb-3">
+                                <a class="text-decoration-underline fz-14 me-3" href="https://prnt.sc/tuwnua"
+                                    target="_blank"><i class="fa fa-external-link"></i> View Screenshot 1</a>
+                                <a class="text-decoration-underline fz-14" href="https://prnt.sc/tuwo66"
+                                    target="_blank"><i class="fa fa-external-link"></i> View Screenshot 2</a>
+                            </div>
+
+                            <div
+                                class="alert alert-warning mb-0 border-0 border-start border-warning border-5 shadow-sm d-flex align-items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+                                    class="bi bi-lightbulb me-3" viewBox="0 0 16 16">
+                                    <path
+                                        d="M2 6a6 6 0 1 1 10.174 4.31c-.203.196-.359.4-.453.619l-.762 1.769A.5.5 0 0 1 10.5 13a.5.5 0 0 1 0 1 .5.5 0 0 1 0 1l-.224.447a1 1 0 0 1-.894.553H6.618a1 1 0 0 1-.894-.553L5.5 15a.5.5 0 0 1 0-1 .5.5 0 0 1 0-1 .5.5 0 0 1-.46-.302l-.761-1.77a1.964 1.964 0 0 0-.453-.618A5.984 5.984 0 0 1 2 6zm6-5a5 5 0 0 0-3.479 8.592c.263.254.514.564.676.941L5.83 12h4.342l.632-1.467c.162-.377.413-.687.676-.941A5 5 0 0 0 8 1z" />
+                                </svg>
+                                After the site has finished developing, when you are ready to upload your website to the
+                                server, then connect this file again "service-worker.js" to your project.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SCSS files -->
+                    <div class="card border-0 mb-5 bg-light" id="scssFiles">
+                        <div class="card-body">
+                            <h3 class="mb-3 fw-bold">SCSS files</h3>
+                            <p>Sass stands for Syntactically Awesome Stylesheet. Sass is the most mature, stable, and
+                                powerful professional grade CSS extension language in the world. It's gives you
+                                variables, nesting, partials, modules, mixins, extend/inheritance &amp; operators, etc.
+                            </p>
+                            <a class="text-decoration-underline mb-4 d-block fz-14" href="https://sass-lang.com"
+                                target="_blank"><i class="fa fa-external-link"></i> Visit the official website to learn
+                                the details.</a>
+
+                            <table class="table-files-structure table mb-0">
+                                <caption class="caption-top">SCSS Files Layout</caption>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">File</th>
+                                        <th scope="col">Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th>style.scss</th>
+                                        <td>Core stylesheet</td>
+                                    </tr>
+                                    <tr>
+                                        <th>_fonts.scss</th>
+                                        <td>Font family name</td>
+                                    </tr>
+                                    <tr>
+                                        <th>_colors.scss</th>
+                                        <td>All global colors</td>
+                                    </tr>
+                                    <tr>
+                                        <th>_responsive.scss</th>
+                                        <td>Responsive breakpoint</td>
+                                    </tr>
+                                    <tr>
+                                        <th>_preloader.scss</th>
+                                        <td>Preloader css</td>
+                                    </tr>
+                                    <tr>
+                                        <th>_bootstrap-color-reset.scss</th>
+                                        <td>Bootstrap colors reset css</td>
+                                    </tr>
+                                    <tr>
+                                        <th>_shortcode.scss</th>
+                                        <td>Template shortcode css</td>
+                                    </tr>
+                                    <tr>
+                                        <th>_miscellaneous.scss</th>
+                                        <td>Template miscellaneous css</td>
+                                    </tr>
+                                    <tr>
+                                        <th>_animation.scss</th>
+                                        <td>Animation css</td>
+                                    </tr>
+                                    <tr>
+                                        <th>_register.scss</th>
+                                        <td>Register page css</td>
+                                    </tr>
+                                    <tr>
+                                        <th>_header.scss</th>
+                                        <td>Header css</td>
+                                    </tr>
+                                    <tr>
+                                        <th>_sidenav.scss</th>
+                                        <td>Sidenav left &amp; right css</td>
+                                    </tr>
+                                    <tr>
+                                        <th>_footer.scss</th>
+                                        <td>Footer css</td>
+                                    </tr>
+                                    <tr>
+                                        <th>_btn.scss</th>
+                                        <td>Template button css</td>
+                                    </tr>
+                                    <tr>
+                                        <th>_badge.scss</th>
+                                        <td>Template badge css</td>
+                                    </tr>
+                                    <tr>
+                                        <th>_breadcrumb.scss</th>
+                                        <td>Breadcrumb css</td>
+                                    </tr>
+                                    <tr>
+                                        <th>_alerts.scss</th>
+                                        <td>Alert css</td>
+                                    </tr>
+                                    <tr>
+                                        <th>_divider.scss</th>
+                                        <td>Template divider css</td>
+                                    </tr>
+                                    <tr>
+                                        <th>_coming-soon.scss</th>
+                                        <td>Coming soon page css</td>
+                                    </tr>
+                                    <tr>
+                                        <th>_card.scss</th>
+                                        <td>All card css</td>
+                                    </tr>
+                                    <tr>
+                                        <th>_chats.scss</th>
+                                        <td>Chats page css</td>
+                                    </tr>
+                                    <tr>
+                                        <th>_carousel.scss</th>
+                                        <td>Bootstrap carousel &amp; Owl carousel css</td>
+                                    </tr>
+                                    <tr>
+                                        <th>_countdown.scss</th>
+                                        <td>Countdown css</td>
+                                    </tr>
+                                    <tr>
+                                        <th>_counterup.scss</th>
+                                        <td>Counter Up css</td>
+                                    </tr>
+                                    <tr>
+                                        <th>_form.scss</th>
+                                        <td>All form input css</td>
+                                    </tr>
+                                    <tr>
+                                        <th>_hero-block.scss</th>
+                                        <td>Hero block page css</td>
+                                    </tr>
+                                    <tr>
+                                        <th>_image-gallery.scss</th>
+                                        <td>Image gallery css</td>
+                                    </tr>
+                                    <tr>
+                                        <th>_list-group.scss</th>
+                                        <td>List group card css</td>
+                                    </tr>
+                                    <tr>
+                                        <th>_loader.scss</th>
+                                        <td>All preloader css</td>
+                                    </tr>
+                                    <tr>
+                                        <th>_modal.scss</th>
+                                        <td>Modal css</td>
+                                    </tr>
+                                    <tr>
+                                        <th>_notification.scss</th>
+                                        <td>Notifications page css</td>
+                                    </tr>
+                                    <tr>
+                                        <th>_pagination.scss</th>
+                                        <td>All pagination css</td>
+                                    </tr>
+                                    <tr>
+                                        <th>_partner.scss</th>
+                                        <td>Business partner css</td>
+                                    </tr>
+                                    <tr>
+                                        <th>_price-table.scss</th>
+                                        <td>Price table css</td>
+                                    </tr>
+                                    <tr>
+                                        <th>_progress.scss</th>
+                                        <td>Progress bar css</td>
+                                    </tr>
+                                    <tr>
+                                        <th>_rating.scss</th>
+                                        <td>Client rating css</td>
+                                    </tr>
+                                    <tr>
+                                        <th>_scrollspy.scss</th>
+                                        <td>Scrollspy css</td>
+                                    </tr>
+                                    <tr>
+                                        <th>_testimonial.scss</th>
+                                        <td>Testimonial css</td>
+                                    </tr>
+                                    <tr>
+                                        <th>_timeline.scss</th>
+                                        <td>Timeline page css</td>
+                                    </tr>
+                                    <tr>
+                                        <th>_toast.scss</th>
+                                        <td>Toast css</td>
+                                    </tr>
+                                    <tr>
+                                        <th>_tabs.scss</th>
+                                        <td>Tabs css</td>
+                                    </tr>
+                                    <tr>
+                                        <th>_blog.scss</th>
+                                        <td>All blog pages css</td>
+                                    </tr>
+                                    <tr>
+                                        <th>_cart.scss</th>
+                                        <td>Cart page css</td>
+                                    </tr>
+                                    <tr>
+                                        <th>_invoice.scss</th>
+                                        <td>Invoice page css</td>
+                                    </tr>
+                                    <tr>
+                                        <th>_language.scss</th>
+                                        <td>Language page css</td>
+                                    </tr>
+                                    <tr>
+                                        <th>_product.scss</th>
+                                        <td>Product page css</td>
+                                    </tr>
+                                    <tr>
+                                        <th>_service.scss</th>
+                                        <td>Service page css</td>
+                                    </tr>
+                                    <tr>
+                                        <th>_team.scss</th>
+                                        <td>Team page css</td>
+                                    </tr>
+                                    <tr>
+                                        <th>_user-profile.scss</th>
+                                        <td>User profile page css</td>
+                                    </tr>
+                                    <tr>
+                                        <th>_demo.scss</th>
+                                        <td>Demo page css</td>
+                                    </tr>
+                                    <tr>
+                                        <th>_rtl.scss</th>
+                                        <td>RTL mode css</td>
+                                    </tr>
+                                    <tr>
+                                        <th>_dark.scss</th>
+                                        <td>Dark mode css</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- PUG files -->
+                    <div class="card border-0 mb-5 bg-light">
+                        <div class="card-body">
+                            <h3 class="mb-3 fw-bold">PUG files</h3>
+                            <p>With Pug you can easily write HTML code. You have many powerful features at Pug. It's has
+                                powerful features like conditions, loops, includes, mixins. When you write HTML code in
+                                Pug, it is processed by the template engine into standard HTML code. So that web
+                                browsers can understand the code.</p>
+                            <a class="text-decoration-underline mb-4 d-block fz-14"
+                                href="https://pugjs.org/api/getting-started.html" target="_blank"><i
+                                    class="fa fa-external-link"></i> Visit the official website to learn the
+                                details.</a>
+
+                            <table class="table-files-structure table mb-0">
+                                <caption class="caption-top">PUG Files Layout</caption>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">File</th>
+                                        <th scope="col">Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th>inc/back-btn.pug</th>
+                                        <td>Header left side back button code</td>
+                                    </tr>
+                                    <tr>
+                                        <th>inc/dark-rtl-loader.pug</th>
+                                        <td>Dark &amp; rtl code</td>
+                                    </tr>
+                                    <tr>
+                                        <th>inc/footer.pug</th>
+                                        <td>Footer all plugins code</td>
+                                    </tr>
+                                    <tr>
+                                        <th>inc/footer-chart.pug</th>
+                                        <td>Chart page footer all plugins code</td>
+                                    </tr>
+                                    <tr>
+                                        <th>inc/footer-form-autocomplete.pug</th>
+                                        <td>Form autocomplete all plugins code</td>
+                                    </tr>
+                                    <tr>
+                                        <th>inc/footer-nav.pug</th>
+                                        <td>Footer nav code</td>
+                                    </tr>
+                                    <tr>
+                                        <th>inc/footer-otp.pug</th>
+                                        <td>OTP page all plugins code</td>
+                                    </tr>
+                                    <tr>
+                                        <th>inc/footer-register.pug</th>
+                                        <td>Register page all plugins code</td>
+                                    </tr>
+                                    <tr>
+                                        <th>inc/head.pug</th>
+                                        <td>Global page head code</td>
+                                    </tr>
+                                    <tr>
+                                        <th>inc/header.pug</th>
+                                        <td>Header 1 code</td>
+                                    </tr>
+                                    <tr>
+                                        <th>inc/header-2.pug</th>
+                                        <td>Header 2 code</td>
+                                    </tr>
+                                    <tr>
+                                        <th>inc/header-3.pug</th>
+                                        <td>Header 3 code</td>
+                                    </tr>
+                                    <tr>
+                                        <th>inc/header-4.pug</th>
+                                        <td>Header 4 code</td>
+                                    </tr>
+                                    <tr>
+                                        <th>inc/header-5.pug</th>
+                                        <td>Header 5 code</td>
+                                    </tr>
+                                    <tr>
+                                        <th>inc/header-6.pug</th>
+                                        <td>Header 6 code</td>
+                                    </tr>
+                                    <tr>
+                                        <th>inc/internet-status.pug</th>
+                                        <td>Offline &amp; Online status code</td>
+                                    </tr>
+                                    <tr>
+                                        <th>inc/loader.pug</th>
+                                        <td>Preloader code</td>
+                                    </tr>
+                                    <tr>
+                                        <th>inc/tiny-slider-one.pug</th>
+                                        <td>Owl carousel one code</td>
+                                    </tr>
+                                    <tr>
+                                        <th>inc/tiny-slider-two.pug</th>
+                                        <td>Owl carousel two code</td>
+                                    </tr>
+                                    <tr>
+                                        <th>inc/tiny-slider-three.pug</th>
+                                        <td>Owl carousel three code</td>
+                                    </tr>
+                                    <tr>
+                                        <th>inc/setting-btn.pug</th>
+                                        <td>Setting icon code</td>
+                                    </tr>
+                                    <tr>
+                                        <th>inc/setting-popup.pug</th>
+                                        <td>Dark &amp; RTL mode setting popup code</td>
+                                    </tr>
+                                    <tr>
+                                        <th>inc/sidenav.pug</th>
+                                        <td>Left sidenav code</td>
+                                    </tr>
+                                    <tr>
+                                        <th>inc/sidenav-right.pug</th>
+                                        <td>Right sidenav code</td>
+                                    </tr>
+                                    <tr>
+                                        <th>*.pug</th>
+                                        <td>All elements &amp; pages code</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Title and Favicon -->
+                    <div class="card border-0 mb-5 bg-light" id="basicCustomization">
+                        <div class="card-body">
+                            <h3 class="mb-3 fw-bold">How to edit the <span class="text-primary">Title &amp;
+                                    Favicon?</span></h3>
+                            <p class="mb-2">Open the mail file (affan) in your code editor. Then open <code
+                                    class="bg-white px-2 py-1 shadow-sm rounded-3">head.pug</code> file &amp; customize
+                                as your desire.</p>
+                            <p>File location: <code class="bg-white px-2 py-1 shadow-sm rounded-3">affan > src > pug >
+                                    inc > head.pug</code></p>
+                            <img class="img-thumbnail mb-3" src="assets/img/title.png" alt="">
+
+                            <h5 class="mb-3">Customize with Complied Files</h5>
+                            <p class="mb-2">Open any <code class="bg-white px-2 py-1 shadow-sm rounded-3">*.html</code>
+                                file &amp; customize as your desire.</p>
+                            <p>File location: <code class="bg-white px-2 py-1 shadow-sm rounded-3">affan > dist >
+                                    *.html</code></p>
+
+                            <div class="alert alert-primary mb-0 border-0 border-start border-primary border-5">
+                                Remember: The page you will edit, the change will be only that page. So, you need to
+                                edit all the HTML files.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Logo -->
+                    <div class="card border-0 mb-5 bg-light">
+                        <div class="card-body">
+                            <h3 class="mb-3 fw-bold">How to edit the <span class="text-primary">Brand Logo?</span></h3>
+                            <p class="mb-2">Open the mail file (affan) in your code editor. Then open <code
+                                    class="bg-white px-2 py-1 shadow-sm rounded-3">header.pug/header*.pug</code> file
+                                &amp; customize as your desire.</p>
+                            <p>File location: <code class="bg-white px-2 py-1 shadow-sm rounded-3">affan > src > pug >
+                                    inc > header.pug/header*.pug</code></p>
+                            <img class="img-thumbnail mb-3" src="assets/img/logo.png" alt="">
+
+                            <h5 class="mb-3">Customize with Complied Files</h5>
+                            <p class="mb-2">Open any <code class="bg-white px-2 py-1 shadow-sm rounded-3">*.html</code>
+                                file &amp; customize as your desire.</p>
+                            <p>File location: <code class="bg-white px-2 py-1 shadow-sm rounded-3">affan > dist >
+                                    *.html</code></p>
+
+                            <div class="alert alert-primary mb-0 border-0 border-start border-primary border-5">
+                                Remember: The page you will edit, the change will be only that page. So, you need to
+                                edit all the HTML files.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Side Navbar -->
+                    <div class="card border-0 mb-5 bg-light">
+                        <div class="card-body">
+                            <h3 class="mb-3 fw-bold">How to edit the <span class="text-primary">Side Navbar?</span></h3>
+                            <p class="mb-2">Open the mail file (affan) in your code editor. Then open <code
+                                    class="bg-white px-2 py-1 shadow-sm rounded-3">sidenav.pug/sidenav-right.pug</code>
+                                file &amp; customize as your desire.</p>
+                            <p>File location: <code class="bg-white px-2 py-1 shadow-sm rounded-3">affan > src > pug >
+                                    inc > sidenav.pug/sidenav-right.pug</code></p>
+                            <img class="img-thumbnail mb-3" src="assets/img/sidenav.png" alt="">
+
+                            <h5 class="mb-3">Customize with Complied Files</h5>
+                            <p class="mb-2">Open any <code class="bg-white px-2 py-1 shadow-sm rounded-3">*.html</code>
+                                file &amp; customize as your desire.</p>
+                            <p>File location: <code class="bg-white px-2 py-1 shadow-sm rounded-3">affan > dist >
+                                    *.html</code></p>
+                            <div class="alert alert-primary mb-0 border-0 border-start border-primary border-5">
+                                Remember: The page you will edit, the change will be only that page. So, you need to
+                                edit all the HTML files.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Footer Nav -->
+                    <div class="card border-0 mb-5 bg-light">
+                        <div class="card-body">
+                            <h3 class="mb-3 fw-bold">How to edit the <span class="text-primary">Footer Nav?</span></h3>
+                            <p class="mb-2">Open the mail file (affan) in your code editor. Then open <code
+                                    class="bg-white px-2 py-1 shadow-sm rounded-3">footer-nav.pug</code> file &amp;
+                                customize as your desire.</p>
+                            <p>File location: <code class="bg-white px-2 py-1 shadow-sm rounded-3">affan > src > pug >
+                                    inc > footer-nav.pug</code></p>
+                            <img class="img-thumbnail mb-3" src="assets/img/footer-nav.png" alt="">
+
+                            <h5 class="mb-3">Customize with Complied Files</h5>
+                            <p class="mb-2">Open any <code class="bg-white px-2 py-1 shadow-sm rounded-3">*.html</code>
+                                file &amp; customize as your desire.</p>
+                            <p>File location: <code class="bg-white px-2 py-1 shadow-sm rounded-3">affan > dist >
+                                    *.html</code></p>
+                            <div class="alert alert-primary mb-0 border-0 border-start border-primary border-5">
+                                Remember: The page you will edit, the change will be only that page. So, you need to
+                                edit all the HTML files.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Colors -->
+                    <div class="card border-0 mb-5 bg-light">
+                        <div class="card-body">
+                            <h3 class="mb-3 fw-bold">How to edit the template <span class="text-primary">Colors?</span>
+                            </h3>
+                            <p class="mb-2">Open the mail file (affan) in your code editor. Then open <code
+                                    class="bg-white px-2 py-1 shadow-sm rounded-3">_colors.scss</code> file &amp;
+                                customize as your desire.</p>
+                            <p>File location: <code class="bg-white px-2 py-1 shadow-sm rounded-3">affan > src > scss >
+                                    _colors.scss</code></p>
+                            <img class="img-thumbnail mb-3" src="assets/img/color.png" alt="">
+
+                            <h5 class="mb-3">Customize with Complied Files</h5>
+                            <p class="mb-2">Open <code class="bg-white px-2 py-1 shadow-sm rounded-3">style.css</code>
+                                file &amp; customize as your desire.</p>
+                            <p class="mb-0">File location: <code class="bg-white px-2 py-1 shadow-sm rounded-3">affan >
+                                    dist > style.css</code></p>
+                        </div>
+                    </div>
+
+                    <!-- PWA -->
+                    <div class="card border-0 mb-5 bg-light" id="pwa">
+                        <div class="card-body">
+                            <h3 class="mb-3 fw-bold">Progressive Web Apps (PWA)</h3>
+                            <p class="mb-4">A progressive web application (PWA) is a type of application software
+                                delivered through the web, built using common web technologies including HTML, CSS and
+                                JavaScript. It is intended to work on any platform that uses a standards-compliant
+                                browser, including both desktop and mobile devices. </p>
+
+                            <div class="alert alert-warning border-0 border-start border-warning border-5">
+                                Remember: PWA will work if you have a server that serves HTPPS.
+                            </div>
+
+                            <h5 class="mb-3">Change the <span class="text-primary">Name, Start URL, Theme Color,
+                                    Catagories, Description &amp Icons:</span></h5>
+                            <p class="mb-2">Open <code
+                                    class="bg-white px-2 py-1 shadow-sm rounded-3">manifest.json</code> file &amp;
+                                customize as your desire.</p>
+
+                            <p>File location: <code class="bg-white px-2 py-1 shadow-sm rounded-3">affan > static >
+                                    manifest.json</code></p>
+                            <h6 class="mb-3">Customize with Complied Files</h6>
+                            <p class="mb-2">Open <code
+                                    class="bg-white px-2 py-1 shadow-sm rounded-3">manifest.json</code> file &amp;
+                                customize as your desire.</p>
+                            <p>File location: <code class="bg-white px-2 py-1 shadow-sm rounded-3">affan >
+                                    dist > manifest.json</code></p>
+                            <img class="img-thumbnail" src="assets/img/pwa.png" alt="">
+                        </div>
+                    </div>
+
+                    <!-- Dark Mode -->
+                    <div class="card border-0 mb-5 bg-light" id="darkMode">
+                        <div class="card-body">
+                            <h3 class="mb-3 fw-bold">Dark Mode</h3>
+                            <p class="mb-4">Dark mode are becoming very popular nowadays. So we have given
+                                dark mode in this template. If you want, you can use it as toggle switch mode or by
+                                default. Or, you can delete this.</p>
+
+                            <p class="mb-2">If you want to use it in default mode, use the following code
+                                in the <code>&lt;html&gt;</code> tag.</p>
+                            <code
+                                class="bg-white px-2 py-1 shadow-sm rounded-3 d-inline-block mb-3">data-theme="dark"</code>
+                            <img class="d-block img-thumbnail mb-3" src="assets/img/dark1.png" alt="">
+
+                            <p class="mb-2">If not, delete the Dark code and toggle switch code from the
+                                template.</p>
+                            <code class="bg-white px-2 py-1 shadow-sm rounded-3 d-inline-block">affan > src > scss
+                                > _dark.scss</code>
+                        </div>
+                    </div>
+
+                    <!-- RTL Mode -->
+                    <div class="card border-0 mb-5 bg-light">
+                        <div class="card-body">
+                            <h3 class="mb-3 fw-bold">Right to Left (RTL) Mode</h3>
+                            <p class="mb-4">The languages of many countries of the world are written in RTL mode. So RTL
+                                mode has been given in it. If you want, you can use it as toggle switch mode or by
+                                default. Or, you can delete this.</p>
+
+                            <p class="mb-2">If you want to use it in default mode, use the following code in the
+                                <code>&lt;html&gt;</code>
+                                tag.</p>
+                            <code
+                                class="bg-white px-2 py-1 shadow-sm rounded-3 d-inline-block mb-3">view-mode="rtl"</code>
+                            <img class="d-block img-thumbnail mb-3" src="assets/img/rtl.png" alt="">
+
+                            <p class="mb-2">If not, delete the Dark code and toggle switch code from the template.</p>
+                            <code class="bg-white px-2 py-1 shadow-sm rounded-3 d-inline-block">affan > src > scss
+                                > _rtl.scss</code>
+                        </div>
+                    </div>
+
+                    <div class="border-top w-100 mb-5"></div>
+
+                    <!-- Customize with Complied Files -->
+                    <div class="card border-0 mb-5 bg-light" id="compliedFiles">
+                        <div class="card-body">
+                            <h3 class="mb-3 fw-bold">Customize with Complied Files</h3>
+                            <p class="mb-4">Working with compiled files is very easy. You don't need any build tools or
+                                local setup to edit the template. A folder (affan/dist) is already provided with the
+                                template. Open this folder and edit it as your desired.</p>
+
+                            <div class="alert alert-danger mb-0 border-0 border-start border-danger border-5">
+                                <div class="text-content">
+                                    <h6>Recompiling will overwrite your all changes!</h6>
+                                    <p class="mb-0">When you will customize with compile files, please do not run the
+                                        template build tools. If you run the template build tools again, all your
+                                        changes will be overwritten.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="border-top w-100 mb-5"></div>
+
+                    <!-- Third Party Plugins -->
+                    <div class="card border-0 mb-5 bg-light" id="3rdParty">
+                        <div class="card-body">
+                            <h3 class="mb-3 fw-bold">Third Party Plugins Activation</h3>
+                            <div class="table-responsive">
+                                <table class="table-files-structure table table-bordered mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Name</th>
+                                            <th scope="col">Plugins Activation Code</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th>Tiny Slider</th>
+                                            <td class="bg-white">
+                                                <pre class="mb-0"><code>var slider = tns({
+    container: ".tiny-slider-one", // Slider container name
+    items: 1, // The number of slides to be shown at once. 
+    slideBy: "page",
+    autoplay: true,
+    autoplayButtonOutput: false,
+    autoplayTimeout: 5000,
+    speed: 1000,
+    mouseDrag: true,
+    controlsText: [(''), ('')],
+    responsive: { // Responsive mode
+        480: {
+            items: 7
+        },
+        576: {
+            items: 7
+        },
+        768: {
+            items: 8
+        },
+        992: {
+            items: 10
+        },
+        1200: {
+            items: 10
+        }
+    }
+});
+</code></pre>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Magic Grid</th>
+                                            <td class="bg-white">
+                                                <pre class="mb-0"><code>let magicGrid = new MagicGrid({
+    container: '#filterContainer', // Container name
+    animate: true,
+    gutter: 16, // Space between two items
+    static: true,
+    useMin: true
+});
+
+magicGrid.listen();
+</code></pre>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>BaguetteBox</th>
+                                            <td class="bg-white">
+                                                <pre class="mb-0"><code>window.addEventListener("load", function () {
+    baguetteBox.run("your_container_name", {
+        captions: false,
+        fullScreen: false,
+        animation: "slideIn", // Also available 'fadeIn' or 'false' options
+        overlayBackgroundColor: "rgba(15,7,15,0.7)"
+    });
+});
+</code></pre>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Countdown</th>
+                                            <td class="bg-white">
+                                                <pre class="mb-0"><code>new countdown({
+    target: '#countdown1', // Container name
+    dayWord: ' Days',
+    hourWord: ' Hours',
+    minWord: ' Mins',
+    secWord: ' Secs'
+});
+</code></pre>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>ion Range Slider</th>
+                                            <td class="bg-white">
+                                                <pre class="mb-0"><code>ionRangeSlider(ionRangeSlider1, {options});
+</code></pre>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Data Table</th>
+                                            <td class="bg-white">
+                                                <pre class="mb-0"><code>var dataTable = new DataTable(your_container_name, {
+    perPage: 10,
+    perPageSelect: [10, 20, 30, 40, 50],
+    searchable: true,
+    sortable: true,
+    fixedHeight: false,
+    prevText: '',
+    nextText: '',
+    labels: {
+        placeholder: "Search",
+        perPage: "{select}",
+        noRows: "No data!",
+        info: "{start} to {end} entries",
+    }
+});
+</code></pre>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="border-top w-100 mb-5"></div>
+
+                    <!-- Credit -->
+                    <div class="card border-0 mb-5 bg-light" id="credits">
+                        <div class="card-body">
+                            <h3 class="mb-3 fw-bold">Credits</h3>
+
+                            <ul class="ps-0 credits-list">
+                                <li>Framework</li>
+                                <li><a href="https://getbootstrap.com"><i class="fa fa-external-link"></i> Bootstrap
+                                    </a></li>
+
+                                <li>Fonts &amp; Icons</li>
+                                <li><a href="https://icons.getbootstrap.com"><i class="fa fa-external-link"></i>
+                                        Bootstrap Icons</a></li>
+                                <li><a href="https://fonts.google.com"><i class="fa fa-external-link"></i> Google
+                                        Fonts</a></li>
+
+                                <li>Images</li>
+                                <li><a href="https://unsplash.com"><i class="fa fa-external-link"></i> Unsplash</a></li>
+                                <li><a href="https://www.freepik.com"><i class="fa fa-external-link"></i> Freepik</a>
+                                </li>
+
+                                <li>Plugins</li>
+                                <li><a href="https://github.com/bfintal/Counter-Up2"><i class="fa fa-external-link"></i>
+                                        Counter Up</a></li>
+                                <li><a href="https://github.com/feimosi/baguetteBox.js/"><i class="fa fa-external-link"></i>
+                                    baguettebox</a></li>
+                                <li><a href="https://github.com/e-oj/Magic-Grid"><i class="fa fa-external-link"></i>
+                                    Magic Grid</a></li>
+                                <li><a href="https://github.com/keisto/vanilla-rangeslider"><i
+                                            class="fa fa-external-link"></i> Range Slider</a></li>
+                                <li><a href="https://github.com/fionnachan/countdownJS"><i
+                                            class="fa fa-external-link"></i> Countdown</a></li>
+                                <li><a href="https://github.com/pascualmj/pswmeter"><i class="fa fa-external-link"></i> Password
+                                        Meter</a></li>
+                                <li><a href="https://github.com/ganlanyuan/tiny-slider"><i class="fa fa-external-link"></i> Tiny Slider</a></li>
+                                <li><a href="https://github.com/ericbutler555/plain-js-slidetoggle"><i class="fa fa-external-link"></i> Slide Toggle</a></li>
+
+                                <li>Table &amp; Charts</li>
+                                <li><a href="https://github.com/Mobius1/Vanilla-DataTables"><i
+                                            class="fa fa-external-link"></i> Data Table</a>
+                                </li>
+                                <li><a href="https://apexcharts.com/"><i class="fa fa-external-link"></i> Apex
+                                        Charts</a></li>
+
+                                <li>Maps</li>
+                                <li><a href="https://www.google.com/maps/"><i class="fa fa-external-link"></i> Google
+                                        Maps</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Changelog(s) -->
+                    <div class="card border-0 bg-light">
+                        <div class="card-body">
+                            <h3 class="mb-4 fw-bold">Changelog(s)</h3>
+
+                            <h6 class="fw-bold">Version 1.3.0 - Sep 3, 2021</h6>
+                            <ul class="ps-0 mb-4 fz-14 changelog-list">
+                                <li><strong>New Added:</strong> The whole code is written with Vanilla JavaScript. From now, there is no need for jQuery dependency.</li>
+                                <li><strong>New Added:</strong> Filter Menu on Elements Page</li>
+                                <li><strong>New Added:</strong> Offcanvas Navbar</li>
+                                <li><strong>New Added:</strong> Horizontal Scroll Menu</li>
+                                <li><strong>New Added:</strong> Notification Button</li>
+                                <li><strong>New Added:</strong> Login Page via Social Media</li>
+                                <li><strong>New Added:</strong> Large Checkbox</li>
+                                <li><strong>New Added:</strong> Toggle Password Visibility</li>
+                                <li><strong>New Added:</strong> Comparison Table</li>
+                                <li><strong>Updated:</strong> Bootstrap v5.0.1 > Bootstrap v5.1.0</li>
+                                <li><strong>Improved:</strong> Design &amp; Code Quality</li>
+                                <li><strong>Removed:</strong> Font Awesome Icons</li>
+                            </ul>
+
+                            <h6 class="fw-bold">Version 1.2.1 (Jun 28, 2021)</h6>
+                            <ul class="ps-0 mb-4 fz-14 changelog-list">
+                                <li><strong>Updated:</strong> Documentation</li>
+                            </ul>
+
+                            <h6 class="fw-bold">Version 1.2.0 (Jun 21, 2021)</h6>
+                            <ul class="ps-0 mb-4 fz-14 changelog-list">
+                                <li><strong>Improved:</strong> Design Quality</li>
+                                <li><strong>Improved:</strong> Code Quality</li>
+                                <li><strong>Updated:</strong> Bootstrap v5.0.0-beta2 > Bootstrap v5.0.1</li>
+                                <li><strong>Updated:</strong> Owl Carousel 2.2.1 > Owl Carousel 2.3.4</li>
+                                <li><strong>Updated:</strong> Font Family - Public Sans to Poppins</li>
+                                <li><strong>Removed:</strong> Clipboard js Plugin</li>
+                                <li><strong>New Added:</strong> The static folder in the package (this folder contains
+                                    all the static files).</li>
+                            </ul>
+
+                            <h6 class="fw-bold">Version 1.1.0 (March 13, 2021)</h6>
+                            <ul class="ps-0 mb-4 fz-14 changelog-list">
+                                <li><strong>New Added:</strong> 3 chat page & 1 tab page</li>
+                                <li><strong>Improved:</strong> Dark & RTL mode</li>
+                                <li><strong>Improved:</strong> Design quality</li>
+                                <li><strong>Improved:</strong> Code quality</li>
+                                <li><strong>Updated:</strong> Bootstrap v5.0.0-beta1 > Bootstrap v5.0.0-beta2</li>
+                                <li><strong>Updated:</strong> Commissioner Google Fonts > Public Sans Google Fonts</li>
+                            </ul>
+
+                            <h6 class="fw-bold">Version 1.0.0 (Dec 14, 2020)</h6>
+                            <ul class="ps-0 fz-14 changelog-list">
+                                <li>Initial Realease</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/jquery/jquery-2.2.4.min.js"></script>
+    <script src="assets/js/jquery.easing.min.js"></script>
+    <script src="assets/js/jquery.sticky.js"></script>
+    <script src="assets/js/one-page-nav.js"></script>
+    <script src="assets/js/active.js"></script>
+</body>
+
+</html>
