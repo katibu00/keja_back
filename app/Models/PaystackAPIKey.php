@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class PaystackAPIKey extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['secret_key', 'public_key'];
+
 }
