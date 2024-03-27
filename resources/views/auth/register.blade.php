@@ -8,6 +8,22 @@
     <meta name="theme-color" content="#0134d4">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <meta name="description" content="SubNow.ng - Nigeria's #1 data and airtime portal, offering innovative solutions for purchasing data and airtime with ease. Revolutionize your digital connectivity experience with SubNow.ng.">
+    <meta name="keywords" content="SubNow, SubNow.ng, Nigeria, data portal, airtime portal, buy data, buy airtime, digital connectivity, internet access, innovative, convenience">
+    <meta name="author" content="Subnow NG">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="SubNow.ng - Nigeria's Premier Data and Airtime Portal">
+    <meta property="og:description" content="Welcome to SubNow.ng, Nigeria's premier data and airtime portal, revolutionizing how internet users access data and airtime effortlessly.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://subnow.ng/">
+    <meta property="og:image" content="https://subnow.ng/uploads/logo.png">
+    <meta property="og:site_name" content="SubNow.ng">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="SubNow.ng - Nigeria's Premier Data and Airtime Portal">
+    <meta name="twitter:description" content="Welcome to SubNow.ng, Nigeria's premier data and airtime portal, revolutionizing how internet users access data and airtime effortlessly.">
+    <meta name="twitter:image" content="https://subnow.ng/uploads/logo.png">
+
     <!-- Title -->
     <title>Register new account | SubNow</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -41,7 +57,7 @@
     <!-- Internet Connection Status -->
     <div class="internet-connection-status" id="internetStatus"></div>
     <!-- Back Button -->
-    <div class="login-back-button"><a href="/frontend/page-login.html">
+    <div class="login-back-button"><a href="{{ route('login') }}">
         <svg class="bi bi-arrow-left-short" width="32" height="32" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
           <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z"></path>
         </svg></a></div>
@@ -61,10 +77,10 @@
                 <input class="form-control" type="text" name="phone" placeholder="Enter your Phone Number">
             </div>
             <div class="form-group text-start mb-3">
-                <input class="form-control" type="email" name="email" placeholder="Enter your Email (optional)">
+                <input class="form-control" type="email" name="email" placeholder="Enter your Email">
             </div>
         
-            <div class="form-group text-start mb-3">
+            {{-- <div class="form-group text-start mb-3">
                 <div class="d-flex align-items-center">
                     <select class="form-select me-2" id="bvnNinSelect" name="bvn_nin_select">
                         <option value="bvn">BVN</option>
@@ -73,24 +89,24 @@
                     <small><a href="#" data-bs-toggle="modal" data-bs-target="#bvnNinInfoModal">Why do we
                             need your BVN?</a></small>
                 </div>
-            </div>
+            </div> --}}
 
-            <div class="form-group text-start mb-3" id="bvnField">
+            {{-- <div class="form-group text-start mb-3" id="bvnField">
                 <input class="form-control" type="text" name="bvn" placeholder="Enter your BVN">
             </div>
             <div class="form-group text-start mb-3" id="ninField" style="display: none;">
                 <input class="form-control" type="text" name="nin" placeholder="Enter your NIN">
-            </div>
+            </div> --}}
 
             <div class="form-group text-start mb-3 position-relative">
               <input class="form-control" id="psw-input" name="password" type="password" placeholder="New password">
               <div class="position-absolute" id="password-visibility"><i class="bi bi-eye"></i><i class="bi bi-eye-slash"></i></div>
             </div>
             <div class="mb-3" id="pswmeter"></div>
-            <div class="form-check mb-3">
+            {{-- <div class="form-check mb-3">
               <input class="form-check-input" id="checkedCheckbox" type="checkbox" value="" checked>
               <label class="form-check-label text-muted fw-normal" for="checkedCheckbox">I agree with the terms &amp; policy.</label>
-            </div>
+            </div> --}}
             <button class="btn btn-primary w-100" type="submit">Sign Up</button>
           </form>
         </div>

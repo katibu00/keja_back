@@ -105,11 +105,11 @@
                 <div class="accordion-collapse collapse" id="accordionStyleNine" aria-labelledby="accordionNine" data-bs-parent="#accordionStyle3">
                     <div class="accordion-body">
                         <p class="mb-3">Please transfer your desired amount to the following account:</p>
-                        <p class="mb-1"><strong>Bank Name:</strong> Example Bank</p>
-                        <p class="mb-1"><strong>Account Number:</strong> <span id="accountNumber">1234567890</span> <button class="btn btn-sm btn-secondary" onclick="copyText('accountNumber')">Copy Account Number</button></p>
-                        <p class="mb-1"><strong>Account Name:</strong> John Doe</p>
+                        <p class="mb-1"><strong>Bank Name:</strong> OPay Digital Services </p>
+                        <p class="mb-1"><strong>Account Number:</strong> <span id="accountNumber">80331742228</span> <button class="btn btn-sm btn-secondary" onclick="copyText('accountNumber')">Copy Account Number</button></p>
+                        <p class="mb-1"><strong>Account Name:</strong> KAtibu Umar Muhammad</p>
                         <p class="mb-3"><strong>Reference:</strong> Please use your username as the description/reference when making the transfer.</p>
-                        <p class="mb-0"><strong>Username:</strong> <span id="username">YourUsername</span> <button class="btn btn-sm btn-secondary" onclick="copyText('username')">Copy Username</button></p>
+                        <p class="mb-0"><strong>Username:</strong> <span id="username">{{ auth()->user()->username }}</span> <button class="btn btn-sm btn-secondary" onclick="copyText('username')">Copy Username</button></p>
                     </div>
                 </div>
             </div>

@@ -31,11 +31,6 @@
       </div>
 
 
-
-     
-
-
-
       <!-- Setting Card-->
       <div class="card shadow-sm">
         <div class="card-body direction-rtl">

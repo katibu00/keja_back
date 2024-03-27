@@ -279,18 +279,18 @@ class RegisterController extends Controller
         $endpoint = 'https://api.brevo.com/v3/smtp/email';
 
         // Email data
-        $senderName = 'Spectranet';
-        $senderEmail = 'support@Spectranet.com';
+        $senderName = 'Subnow NG';
+        $senderEmail = 'support@subnow.ng';
         $recipientName = $name;
         $recipientEmail = $email;
-        $subject = 'Welcome to Spectranet!';
+        $subject = 'Welcome to Subnow.ng!';
 
         $htmlContent = '<!DOCTYPE html>
         <html lang="en">
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Welcome to Spectranet!</title>
+            <title>Welcome to Subnow.ng!</title>
             <style>
                 /* Add your custom styles here */
                 body {
@@ -330,7 +330,7 @@ class RegisterController extends Controller
         <body>
             <div class="container">
                 <div class="logo">
-                    <img src="https://Spectranet.ng/uploads/logo.jpg" alt="ChatDoc Logo">
+                    <img src="https://subnow.ng/uploads/logo.png" alt="Subnow Logo">
                 </div>
                 <div class="social-media">
                     <a href="https://facebook.com/chatdoc" target="_blank">Facebook</a>
@@ -339,9 +339,9 @@ class RegisterController extends Controller
                 </div>
                 <div class="message">
                     <p>Hello ' . $recipientName . ',</p>
-                    <p>Welcome to Spectranet, where you can get amazing deals on data and airtime.</p>
+                    <p>Welcome to Subnow, where you can get amazing deals on data and airtime.</p>
                     <p>Feel free to reach out to us on social media or reply to this email if you have any questions.</p>
-                    <p>Best regards,<br>Your Spectranet Team</p>
+                    <p>Best regards,<br>Your Subnow Team</p>
                 </div>
             </div>
         </body>

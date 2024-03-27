@@ -3,11 +3,28 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Affan - PWA Mobile HTML Template">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="theme-color" content="#0134d4">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+
+    <meta name="description" content="SubNow.ng - Nigeria's #1 data and airtime portal, offering innovative solutions for purchasing data and airtime with ease. Revolutionize your digital connectivity experience with SubNow.ng.">
+    <meta name="keywords" content="SubNow, SubNow.ng, Nigeria, data portal, airtime portal, buy data, buy airtime, digital connectivity, internet access, innovative, convenience">
+    <meta name="author" content="Subnow NG">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="SubNow.ng - Nigeria's Premier Data and Airtime Portal">
+    <meta property="og:description" content="Welcome to SubNow.ng, Nigeria's premier data and airtime portal, revolutionizing how internet users access data and airtime effortlessly.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://subnow.ng/">
+    <meta property="og:image" content="https://subnow.ng/uploads/logo.png">
+    <meta property="og:site_name" content="SubNow.ng">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="SubNow.ng - Nigeria's Premier Data and Airtime Portal">
+    <meta name="twitter:description" content="Welcome to SubNow.ng, Nigeria's premier data and airtime portal, revolutionizing how internet users access data and airtime effortlessly.">
+    <meta name="twitter:image" content="https://subnow.ng/uploads/logo.png">
+
+
     <!-- Title -->
     <title>@yield('pageTitle') | SubNow</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">

@@ -94,7 +94,7 @@
                     <div class="row g-3">
                         @if($marqueeNotification)
                         <marquee class="marquee-notification" behavior="scroll" direction="left">
-                            {{ $marqueeNotification->title }}: {{ $marqueeNotification->message }}
+                            {{ $marqueeNotification->message }}
                         </marquee>
                         @endif
                     </div>
@@ -283,18 +283,24 @@ document.getElementById('number').addEventListener('input', function () {
     </script>
     <script src="https://cdn.jsdelivr.net/npm/js-loading-overlay@1.1.0/dist/js-loading-overlay.min.js"></script>
     @if ($popUp)
-        <script>
-            $(document).ready(function() {
-                Swal.fire({
-                    icon: 'info',
-                    title: 'Notification',
-                    html: '{{ $popUp->body }}',
-                    confirmButtonText: 'Close',
-                    allowOutsideClick: false,
-                });
+    <script>
+        $(document).ready(function() {
+            Swal.fire({
+                icon: 'info',
+                title: 'Notification',
+                html: '{{ $popUp->body }}',
+                confirmButtonText: 'Close',
+                allowOutsideClick: false,
+                timer: 10000, 
+                timerProgressBar: true, 
+                willClose: () => {
+                    
+                }
             });
-        </script>
-    @endif
+        });
+    </script>
+@endif
+
     <script>
         $(document).ready(function() {
 

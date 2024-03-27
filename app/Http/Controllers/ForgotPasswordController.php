@@ -71,7 +71,7 @@ class ForgotPasswordController extends Controller
             ".<br><br>To reset your password, simply click on the button below:<br><br>" .
             "<a href='" . $resetLink . "' style='display: inline-block; background-color: #4CAF50; color: white; padding: 10px 20px; text-align: center; text-decoration: none; border-radius: 5px;'>Reset Password</a><br><br>" .
             "If you didn't request a password reset, you can safely ignore this email.<br><br>" .
-            "Thank you!<br>Spectranet Team";
+            "Thank you!<br>Subnow.ng Team";
 
         // Send the reset password email
         $this->sendResetPasswordLinkEmail($request->email, $emailBody);
@@ -139,8 +139,8 @@ public function resetPassword(Request $request)
         $endpoint = 'https://api.brevo.com/v3/smtp/email';
 
         // Email data
-        $senderName = 'Spectranet';
-        $senderEmail = 'Spectranet@chatdoct.com';
+        $senderName = 'Subnow NG';
+        $senderEmail = 'support@subnow.ng';
         $recipientEmail = $userEmail;
         $subject = 'Password Reset Request';
 

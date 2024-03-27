@@ -4,17 +4,23 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-    <title>@yield('pageTitle') - Wisehud AI</title>
+    <title>@yield('pageTitle') - Subnow.ng</title>
 
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <meta name="robots" content="noindex, nofollow">
-    <meta property="og:title" content="">
-    <meta property="og:site_name" content="">
-    <meta property="og:description" content="">
+    <meta name="description" content="SubNow.ng - Nigeria's #1 data and airtime portal, offering innovative solutions for purchasing data and airtime with ease. Revolutionize your digital connectivity experience with SubNow.ng.">
+    <meta name="keywords" content="SubNow, SubNow.ng, Nigeria, data portal, airtime portal, buy data, buy airtime, digital connectivity, internet access, innovative, convenience">
+    <meta name="author" content="Subnow NG">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="SubNow.ng - Nigeria's Premier Data and Airtime Portal">
+    <meta property="og:description" content="Welcome to SubNow.ng, Nigeria's premier data and airtime portal, revolutionizing how internet users access data and airtime effortlessly.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="">
-    <meta property="og:image" content="">
+    <meta property="og:url" content="https://subnow.ng/">
+    <meta property="og:image" content="https://subnow.ng/uploads/logo.png">
+    <meta property="og:site_name" content="SubNow.ng">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="SubNow.ng - Nigeria's Premier Data and Airtime Portal">
+    <meta name="twitter:description" content="Welcome to SubNow.ng, Nigeria's premier data and airtime portal, revolutionizing how internet users access data and airtime effortlessly.">
+    <meta name="twitter:image" content="https://subnow.ng/uploads/logo.png">
+
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <link rel="shortcut icon" href="/admin/media/favicons/favicon.png">
@@ -39,7 +45,7 @@
               <a class="link-fx fw-bold tracking-wide mx-auto" href="#">
                 <span class="smini-hidden">
                   <i class="fa fa-fire text-primary"></i>
-                  <span class="fs-4 text-dual">de</span><span class="fs-4 text-primary">Mentor</span>
+                  <span class="fs-4 text-dual">Sub</span><span class="fs-4 text-primary">Now</span>
                 </span>
               </a>
             </div> 
@@ -216,10 +222,10 @@
         <div class="content py-3">
           <div class="row fs-sm">
             <div class="col-sm-6 order-sm-2 py-1 text-center text-sm-end">
-              Developed by <a class="fw-semibold" href="#" target="_blank">GigaPlus Company</a>
+              Developed by <a class="fw-semibold" href="#" target="_blank">Subnow.ng</a>
             </div>
             <div class="col-sm-6 order-sm-1 py-1 text-center text-sm-start">
-              <a class="fw-semibold" href="https://1.envato.market/95j" target="_blank"> Wisehud AI 1.0.0</a> &copy; <span data-toggle="year-copy"></span>
+              <a class="fw-semibold" href="https://1.envato.market/95j" target="_blank"> Subnow NG 1.0.0</a> &copy; <span data-toggle="year-copy"></span>
             </div>
           </div>
         </div>

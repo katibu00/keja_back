@@ -45,11 +45,11 @@ class UsersController extends Controller
     
         // If the user doesn't have a wallet, create one and then increment the balance
         if (!$user->wallet) {
-            $wallet = new Wallet(['balance' => $validatedData['amount']]);
+            $wallet = new Wallet(['main_balance' => $validatedData['amount']]);
             $user->wallet()->save($wallet);
         } else {
             // Increment the user's wallet balance using the increment method
-            $user->wallet()->increment('balance', $validatedData['amount']);
+            $user->wallet()->increment('main_balance', $validatedData['amount']);
         }
     
         // Perform any additional operations with the manual funding record
