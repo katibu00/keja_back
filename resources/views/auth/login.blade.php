@@ -73,7 +73,7 @@
     <!-- Login Wrapper Area -->
     <div class="login-wrapper d-flex align-items-center justify-content-center">
         <div class="custom-container">
-            <div class="text-center px-4"><img class="login-intro-img" src="/frontend/img/bg-img/36.png" alt="">
+            <div class="text-center px-4"><img class="login-intro-img mb-4"  src="/logo.png" alt="">
             </div>
             @if(session('success'))
                 <div class="alert alert-success mt-3">

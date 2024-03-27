@@ -64,7 +64,7 @@
     <!-- Login Wrapper Area -->
     <div class="login-wrapper d-flex align-items-center justify-content-center">
       <div class="custom-container">
-        <div class="text-center px-4"><img class="login-intro-img" src="/frontend/img/bg-img/36.png" alt=""></div>
+        <div class="text-center px-4"><img class="login-intro-img mb-2" src="/logo.png" alt=""></div>
         <!-- Register Form -->
         <div class="register-form mt-4">
           <h6 class="mb-3 text-center">Register to continue to SubNow.</h6>
