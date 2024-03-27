@@ -10,13 +10,13 @@
                     <div class="card">
                         <div class="card-header">
                             <h5 class="card-title">Regular Users</h5>
-                            <form action="{{ route('search-users') }}" method="GET" class="form-inline mt-2">
+                            {{-- <form action="{{ route('search-users') }}" method="GET" class="form-inline mt-2">
                                 <input type="text" class="form-control" name="search" placeholder="Search users..."
                                        value="{{ request()->get('search') }}">
                                 <button type="submit" class="btn btn-outline-secondary">
                                     <i class="bi bi-search"></i> Search
                                 </button>
-                            </form>
+                            </form> --}}
                         </div>
                         <div class="card-body">
 
