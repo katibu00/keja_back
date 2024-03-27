@@ -16,7 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->string('transaction_reference')->unique();
             $table->enum('purchase_type', ['data', 'airtime']);
-            $table->unsignedBigInteger('data_plan_id');
+            $table->integer('data_plan_id');
             $table->enum('payment_method', ['wallet', 'bonus'])->default('wallet');
             $table->enum('status', ['pending', 'success', 'failed'])->default('pending');
             $table->text('notes')->nullable();
@@ -24,7 +24,6 @@ return new class extends Migration
         
             // Foreign key constraint
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('data_plan_id')->references('plan_id')->on('data_plans')->onDelete('cascade');
         });
         
     }
