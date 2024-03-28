@@ -105,12 +105,12 @@
 
         <style>
             .marquee-notification {
-                font-size: 1.2em; /* Larger text size */
-                font-weight: bold; /* Bold text */
-                color: #d63384; /* Bright color for the text */
+                font-size: 1.2em;
+                font-weight: bold;
+                color: #d63384;
                 padding: 10px;
                 /* background-color: #e9ecef;  */
-                border-radius: 8px; /* Rounded corners for the marquee */
+                border-radius: 8px;
             }
             .bonus-container {
                 background-color: #f0f0f0;
@@ -170,12 +170,10 @@
                             </div>
                         </div>
                         
-
                         <div class="form-group">
                             <label class="form-label">Price</label>
                             <input type="text" class="form-control" id="price" disabled>
                         </div>
-
 
                         <button class="btn btn-success w-100">Buy Now</button>
                     </form>
@@ -195,7 +193,6 @@
                         <input type="text" id="referralLink" class="form-control" value="{{ route('register') }}?referral_code={{ auth()->user()->referral_code }}" readonly>
                     </div>
                     <div class="mb-3">
-                        <!-- Replace the existing button with two buttons: Share on WhatsApp and Copy Link -->
                         <button class="btn btn-success" onclick="shareOnWhatsApp()">Share on WhatsApp</button>
                         <button class="btn btn-info" onclick="copyLink()">Copy Link</button>
                     </div>
@@ -210,10 +207,6 @@
 
         <div class="pb-3"></div>
 
-        
-        
-
-
     </div>
 @endsection
 
@@ -225,34 +218,27 @@
 
 <script>
    function shareOnWhatsApp() {
-        // Construct the WhatsApp share message with the leading message and the referral link
-        var leadingMessage = "Join SubNow, Nigeria's premier destination for hassle-free data and airtime purchases! Unlock exclusive bonuses on every data package you buy when you sign up using my referral link. Don't miss out on the convenience and savings – open an account now and start enjoying the perks!\n\n";
+
+    var leadingMessage = "Join SubNow, Nigeria's premier destination for hassle-free data and airtime purchases! Unlock exclusive bonuses on every data package you buy when you sign up using my referral link. Don't miss out on the convenience and savings – open an account now and start enjoying the perks!\n\n";
         var referralLink = document.getElementById('referralLink').value;
         var shareMessage = leadingMessage + referralLink;
 
-        // Construct the WhatsApp share URL with the share message
         var shareURL = 'https://api.whatsapp.com/send?text=' + encodeURIComponent(shareMessage);
 
-        // Open WhatsApp share URL in a new tab
         window.open(shareURL, '_blank');
     }
 
 
     function copyLink() {
-        // Get the referral link input field
+
         var referralLinkInput = document.getElementById('referralLink');
-
-        // Select the text in the input field
         referralLinkInput.select();
-        referralLinkInput.setSelectionRange(0, 99999); // For mobile devices
+        referralLinkInput.setSelectionRange(0, 99999); 
 
-        // Copy the selected text to the clipboard
         document.execCommand('copy');
 
-        // Deselect the input field
         referralLinkInput.setSelectionRange(0, 0);
 
-        // Show a message indicating that the link has been copied
         toastr.success('Referral link copied to clipboard!');
     }
 </script>
@@ -295,8 +281,13 @@ document.getElementById('number').addEventListener('input', function () {
 
 </script>
 
+    <script src="https://cdn.jsdelivr.net/npm/js-loading-overlay@1.1.0/dist/js-loading-overlay.min.js"></script>
+   
+
     <script>
         $(document).ready(function() {
+
+
             $('#contact').on('change', function() {
                 var phoneField = $('#phoneField');
                 if ($(this).val() === 'new') {
@@ -311,30 +302,24 @@ document.getElementById('number').addEventListener('input', function () {
                 $('#price').val(planPrice);
 
             });
-        });
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/js-loading-overlay@1.1.0/dist/js-loading-overlay.min.js"></script>
-    @if ($popUp)
-    <script>
-        $(document).ready(function() {
-            Swal.fire({
-                icon: 'info',
-                title: 'Notification',
-                html: '{{ $popUp->body }}',
-                confirmButtonText: 'Close',
-                allowOutsideClick: false,
-                timer: 10000, 
-                timerProgressBar: true, 
-                willClose: () => {
-                    
-                }
-            });
-        });
-    </script>
-@endif
 
-    <script>
-        $(document).ready(function() {
+            @if ($popUp)
+                setTimeout(function() {
+                    Swal.fire({
+                        icon: 'info',
+                        title: 'Notification',
+                        html: '{{ $popUp->body }}',
+                        confirmButtonText: 'Close',
+                        allowOutsideClick: false,
+                        timer: 10000, 
+                        timerProgressBar: true, 
+                        willClose: () => {
+                            
+                        }
+                    });
+                }, 2000); 
+             @endif
+
 
             $('#network').on('change', function() {
                 var networkId = $(this).val();

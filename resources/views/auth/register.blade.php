@@ -25,17 +25,17 @@
     <meta name="twitter:image" content="https://subnow.ng/uploads/logo.png">
 
     <!-- Title -->
-    <title>Register new account | SubNow</title>
+    <title>Register | Subnow NG</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Fonts -->
     <link rel="preconnect" href="/frontend/https://fonts.gstatic.com">
     <link href="/frontend/https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet">
     <!-- Favicon -->
-    <link rel="icon" href="/frontend/img/core-img/favicon.ico">
+    {{-- <link rel="icon" href="/frontend/img/core-img/favicon.ico">
     <link rel="apple-touch-icon" href="/frontend/img/icons/icon-96x96.png">
     <link rel="apple-touch-icon" sizes="152x152" href="/frontend/img/icons/icon-152x152.png">
     <link rel="apple-touch-icon" sizes="167x167" href="/frontend/img/icons/icon-167x167.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/frontend/img/icons/icon-180x180.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/frontend/img/icons/icon-180x180.png"> --}}
     <!-- CSS Libraries -->
     <link rel="stylesheet" href="/frontend/css/bootstrap.min.css">
     <link rel="stylesheet" href="/frontend/css/bootstrap-icons.css">
