@@ -20,16 +20,16 @@
     @else
         @foreach ($users as $key => $user)
             @php
-                $userEmail = $user->email;
-                $walletBalance = $user->wallet ? number_format($user->wallet->balance, 2) : 'N/A';
+                $userID = $user->id;
+                $walletBalance = $user->wallet ? number_format($user->wallet->main_balance, 2) : 'N/A';
                 
-                $numberOfFundings = DB::table('monnify_transfers')
-                    ->where('customer_email', $userEmail)
+                $numberOfFundings = DB::table('funding_transactions')
+                    ->where('user_id', $userID)
                     ->count();
                 
-                $totalFundings = DB::table('monnify_transfers')
-                    ->where('customer_email', $userEmail)
-                    ->sum('amount_paid');
+                $totalFundings = DB::table('funding_transactions')
+                    ->where('user_id', $userID)
+                    ->sum('amount');
             @endphp
             <tr>
                 <td>{{ ($users->currentPage() - 1) * $users->perPage() + $loop->iteration }}

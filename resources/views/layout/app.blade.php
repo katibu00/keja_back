@@ -8,7 +8,6 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
-
     <meta name="description" content="SubNow.ng - Nigeria's #1 data and airtime portal, offering innovative solutions for purchasing data and airtime with ease. Revolutionize your digital connectivity experience with SubNow.ng.">
     <meta name="keywords" content="SubNow, SubNow.ng, Nigeria, data portal, airtime portal, buy data, buy airtime, digital connectivity, internet access, innovative, convenience">
     <meta name="author" content="Subnow NG">
@@ -23,7 +22,6 @@
     <meta name="twitter:title" content="SubNow.ng - Nigeria's Premier Data and Airtime Portal">
     <meta name="twitter:description" content="Welcome to SubNow.ng, Nigeria's premier data and airtime portal, revolutionizing how internet users access data and airtime effortlessly.">
     <meta name="twitter:image" content="https://subnow.ng/uploads/logo.png">
-
 
     <!-- Title -->
     <title>@yield('pageTitle') | SubNow</title>
@@ -56,30 +54,65 @@
     <div id="preloader">
       <div class="spinner-grow text-primary" role="status"><span class="visually-hidden">Loading...</span></div>
     </div>
-    <!-- Internet Connection Status -->
-    <!-- # This code for showing internet connection status -->
+   
     <div class="internet-connection-status" id="internetStatus"></div>
     <!-- Header Area -->
     <div class="header-area" id="headerArea">
       <div class="container">
-        <!-- # Paste your Header Content from here -->
-        <!-- # Header Five Layout -->
-        <!-- # Copy the code from here ... -->
-        <!-- Header Content -->
+      
         <div class="header-content header-style-five position-relative d-flex align-items-center justify-content-between">
           <!-- Logo Wrapper -->
           <div class="logo-wrapper"><a href="{{ route('regular.home') }}"><img src="/logo.png" alt=""></a></div>
           <!-- Navbar Toggler -->
           <div class="navbar--toggler" id="affanNavbarToggler" data-bs-toggle="offcanvas" data-bs-target="#affanOffcanvas" aria-controls="affanOffcanvas"><span class="d-block"></span><span class="d-block"></span><span class="d-block"></span></div>
         </div>
-        <!-- # Header Five Layout End -->
       </div>
     </div>
-    <!-- # Sidenav Left -->
-    <!-- Offcanvas -->
+  
     @include('layout.sidebar.index')
     
     @yield('content')
+
+
+    <style>
+      .whatsapp-float {
+          position: fixed;
+          bottom: 70px;
+          right: 20px;
+          z-index: 1000;
+      }
+
+      .whatsapp-chat {
+          display: block;
+          width: 40px;
+          height: 40px;
+          background-color: #25d366; 
+          border-radius: 50%;
+          text-align: center;
+          line-height: 60px;
+          color: #fff;
+          font-size: 24px;
+          box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+          transition: background-color 0.3s ease;
+      }
+
+      .whatsapp-chat:hover {
+          background-color: #128c7e; 
+      }
+
+      .whatsapp-chat i {
+          position: relative;
+          top: 50%;
+          transform: translateY(-50%);
+      }
+    </style>
+
+<div class="whatsapp-float">
+  <a href="https://wa.me/2349122090070?text=Hello%20there!%20I%20need%20support%20from%20SubNow%20NG." target="_blank" class="whatsapp-chat">
+    <i class="mx-auto bi bi-whatsapp"></i>
+</a>
+
+</div>
     <!-- Footer Nav -->
     @include('layout.footer')
     <!-- All JavaScript Files -->

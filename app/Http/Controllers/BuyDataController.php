@@ -187,12 +187,22 @@ class BuyDataController extends Controller
 
             ///////
 
-            return response()->json([
-                'status' => 200,
-                'message' => $responseData->api_response,
-                'new_wallet_balance' => $updatedMainBalance,
-                'new_bonus_balance' => $updatedBonusBalance,
-            ]);
+            if (isset($responseData->api_response)) {
+                return response()->json([
+                    'status' => 200,
+                    'message' => $responseData->api_response,
+                    'new_wallet_balance' => $updatedMainBalance,
+                    'new_bonus_balance' => $updatedBonusBalance,
+                ]);
+            } else {
+                return response()->json([
+                    'status' => 400, 
+                    'message' => 'An error occurred. Please contact our team on WhatsApp for assistance.',
+                    'new_wallet_balance' => $updatedMainBalance,
+                    'new_bonus_balance' => $updatedBonusBalance,
+                ]);
+            }
+
         }
     
     }

@@ -120,9 +120,6 @@
             }
 
         </style>
-        
-
-
 
         <div class="container">
             <div class="card mb-3">
@@ -188,19 +185,19 @@
 
         <div class="pb-3"></div>
 
-
         <div class="container">
             <div class="card bg-primary mb-3 bg-img" style="background-image: url('img/core-img/1.png')">
                 <div class="card-body direction-rtl p-5">
                     <h2 class="text-white">Referral Program</h2>
-                    <p class="mb-4 text-white">Share your referral link with your contacts get and 1GB for every referral!</p>
+                    <p class="mb-4 text-white">Share your referral link with your contacts and get 1GB for every referral!</p>
                     <div class="mb-3">
                         <strong class="text-white">Your Referral Link:</strong>
-                        <input type="text" class="form-control" value="{{ route('register') }}?referral_code={{ auth()->user()->referral_code }}" readonly>
+                        <input type="text" id="referralLink" class="form-control" value="{{ route('register') }}?referral_code={{ auth()->user()->referral_code }}" readonly>
                     </div>
                     <div class="mb-3">
-                        <!-- Add share button functionality here -->
-                        <button class="btn btn-success" onclick="shareReferralLink()">Share</button>
+                        <!-- Replace the existing button with two buttons: Share on WhatsApp and Copy Link -->
+                        <button class="btn btn-success" onclick="shareOnWhatsApp()">Share on WhatsApp</button>
+                        <button class="btn btn-info" onclick="copyLink()">Copy Link</button>
                     </div>
                     <div>
                         <strong class="text-white">Total Users Referred:</strong>
@@ -209,22 +206,57 @@
                 </div>
             </div>
         </div>
+        
 
         <div class="pb-3"></div>
 
         
-        <script>
-            function shareReferralLink() {
-                // Implement share functionality here, such as opening a modal with share options
-                alert('Share your referral link: ' + '{{ route('register') }}?referral_code={{ auth()->user()->referral_code }}');
-            }
-        </script>
+        
 
 
     </div>
 @endsection
 
 @section('js')
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.8/clipboard.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+
+<script>
+   function shareOnWhatsApp() {
+        // Construct the WhatsApp share message with the leading message and the referral link
+        var leadingMessage = "Join SubNow, Nigeria's premier destination for hassle-free data and airtime purchases! Unlock exclusive bonuses on every data package you buy when you sign up using my referral link. Don't miss out on the convenience and savings – open an account now and start enjoying the perks!\n\n";
+        var referralLink = document.getElementById('referralLink').value;
+        var shareMessage = leadingMessage + referralLink;
+
+        // Construct the WhatsApp share URL with the share message
+        var shareURL = 'https://api.whatsapp.com/send?text=' + encodeURIComponent(shareMessage);
+
+        // Open WhatsApp share URL in a new tab
+        window.open(shareURL, '_blank');
+    }
+
+
+    function copyLink() {
+        // Get the referral link input field
+        var referralLinkInput = document.getElementById('referralLink');
+
+        // Select the text in the input field
+        referralLinkInput.select();
+        referralLinkInput.setSelectionRange(0, 99999); // For mobile devices
+
+        // Copy the selected text to the clipboard
+        document.execCommand('copy');
+
+        // Deselect the input field
+        referralLinkInput.setSelectionRange(0, 0);
+
+        // Show a message indicating that the link has been copied
+        toastr.success('Referral link copied to clipboard!');
+    }
+</script>
+
 
 <script>
      // Function to show or hide the phone number field based on recipient selection
