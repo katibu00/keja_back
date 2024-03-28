@@ -36,7 +36,7 @@
                 </td>
                 <td>{{ $user->name }}</td>
                 <td>{{ $user->phone }}</td>
-                <td>{{ $userEmail }}</td>
+                <td>{{ $user->email }}</td>
                 <td>{{ $user->created_at->diffForHumans() }}</td>
                 <td>{{ $walletBalance }}</td>
                 <td>{{ $numberOfFundings }}</td>

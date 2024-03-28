@@ -17,14 +17,19 @@
                         <h6 class="text-truncate mb-0">{{ $transaction->created_at->format('M d, Y H:i') }}</h6>
                         <div class="last-chat">
                             @php
-                                $plan = App\Models\DataPlan::where('plan_id',$transaction->data_plan_id)->first();
-                            @endphp
+                            $plan = App\Models\DataPlan::where('plan_id', $transaction->data_plan_id)->first();
+                        @endphp
+                        
+                        @if($plan)
                             <p class="mb-0 text-truncate">Amount: {{ $plan->amount }}</p>
-                            <p class="mb-0 text-truncate">Status: 
-                                <span class="badge {{ $transaction->status === 'success' ? 'bg-success' : ($transaction->status === 'failed' ? 'bg-danger' : 'bg-warning') }}">
-                                    {{ $transaction->status }}
-                                </span>
-                            </p>
+                        @else
+                            <p class="mb-0 text-truncate">Amount: Data Plan Deleted</p>
+                        @endif
+                        <p class="mb-0 text-truncate">Status: 
+                            <span class="badge {{ $transaction->status === 'success' ? 'bg-success' : ($transaction->status === 'failed' ? 'bg-danger' : 'bg-warning') }}">
+                                {{ $transaction->status }}
+                            </span>
+                        </p>
                        </div>
                     </div>
                     <!-- Options -->
