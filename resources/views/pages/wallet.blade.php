@@ -15,8 +15,6 @@
             <button class="btn btn-close position-relative p-1 ms-auto" type="button" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
         </div>
-        
-        
 
         <div class="container mb-3">
             <div class="card bg-primary bg-img" style="background-image: url('/frontend/img/core-img/2.png')">
@@ -30,10 +28,6 @@
                 </div>
             </div>
         </div>
-        
-
-
-
 
       <div class="container">
         <div class="card bg-primary rounded-0 rounded-top">
@@ -58,10 +52,10 @@
 
                     <form id="paystackForm">
                         <div class="mb-3">
-                            <label for="amountInput" class="form-label">Amount</label>
+                            <label for="amountInput" class="form-label">Enter Amount</label>
                             <input type="number" class="form-control" id="amountInput" name="amount">
                         </div>
-                        <button type="submit" class="btn btn-primary">Fund Wallet</button>
+                        <button type="submit" class="btn btn-primary">Proceed</button>
                     </form>
                     <p class="mb-0 mt-3 text-danger">Once you are in the payment interface, you can choose to pay using bank transfer or your card or USSD.</p>
 
@@ -130,7 +124,7 @@
             </div> --}}
             
               <!-- Single Accordion -->
-              <div class="accordion-item">
+              {{-- <div class="accordion-item">
                 <div class="accordion-header" id="accordionNine">
                     <h6 class="shadow-sm rounded collapsed border" data-bs-toggle="collapse" data-bs-target="#accordionStyleNine" aria-expanded="false" aria-controls="accordionStyleNine">
                         Manual Bank Transfer (0.00% Charges)
@@ -149,11 +143,12 @@
                         <p class="mb-0"><strong>Username:</strong> <span id="username">{{ auth()->user()->username }}</span> <button class="btn btn-sm btn-secondary" onclick="copyText('username')">Copy Username</button></p>
                     </div>
                 </div>
-            </div>
+            </div> --}}
+
               <div class="accordion-item">
                 <div class="accordion-header" id="accordionTen">
                     <h6 class="shadow-sm rounded collapsed border" data-bs-toggle="collapse" data-bs-target="#accordionStyleTen" aria-expanded="false" aria-controls="accordionStyleTen">
-                        Reserved Account Numbers (1% Charges)
+                        Reserved Account Numbers (N50 Charges)
                         <svg class="bi bi-arrow-down-short" width="24" height="24" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L7.5 10.293V4.5A.5.5 0 0 1 8 4z"></path>
                         </svg>
@@ -161,7 +156,7 @@
                 </div>
                 <div class="accordion-collapse collapse" id="accordionStyleTen" aria-labelledby="accordionTen" data-bs-parent="#accordionStyle10">
                     <div class="accordion-body">
-                        <p class="mb-3">Coming soon</p>
+                        <p class="mb-3">Coming soon. For now use paystack and enjoy 0% charges</p>
                     </div>
                 </div>
             </div>
