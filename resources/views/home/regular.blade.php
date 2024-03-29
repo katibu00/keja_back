@@ -380,7 +380,7 @@ document.getElementById('number').addEventListener('input', function () {
                             var dataPlansHTML = '';
                             dataPlansHTML += '<option value=""></option>'
                             $.each(dataPlans, function(index, dataPlan) {
-                                dataPlansHTML += '<option value="' + dataPlan.plan_id + '" data-plan_price="' + dataPlan.selling_price + '" data-plan_amount="' + dataPlan.amount + '">' + dataPlan.amount + ' - ' + dataPlan.plan_type.toUpperCase() + ' - ' + dataPlan.validity + '</option>';
+                                dataPlansHTML += '<option value="' + dataPlan.plan_id + '" data-plan_price="' + dataPlan.selling_price + '" data-plan_amount="' + dataPlan.amount + '">' + dataPlan.amount + ' - ' + dataPlan.plan_type.toUpperCase() + ' - N' + dataPlan.selling_price + '</option>';
                             });
                             amountField.html(dataPlansHTML);
                             var contactHTML = '';
