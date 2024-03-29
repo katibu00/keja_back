@@ -4,6 +4,18 @@
 
     <div class="page-content-wrapper py-3">
         
+        <div class="container mb-3">
+        <div class="alert custom-alert-3 alert-info alert-dismissible fade show" role="alert">
+            <i class="bi bi-info-circle-fill"></i>
+            <div class="alert-text">
+                <h6>Need Assistance?</h6>
+                <span>If you're having difficulty funding your account or have any questions, our team is here to help! Contact us on WhatsApp for assistance.</span>
+                <a class="btn btn-sm btn-creative btn-info mt-2" href="https://wa.me/2349122090070" target="_blank">Contact Us on WhatsApp</a>
+            </div>
+            <button class="btn btn-close position-relative p-1 ms-auto" type="button" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        </div>
+        
         
 
         <div class="container mb-3">
@@ -34,6 +46,29 @@
             <div class="accordion accordion-style-three" id="accordionStyle3">
               <!-- Single Accordion -->
               <div class="accordion-item">
+                <div class="accordion-header" id="accordionSeven">
+                  <h6 class="shadow-sm rounded border" data-bs-toggle="collapse" data-bs-target="#accordionStyleSeven" aria-expanded="true" aria-controls="accordionStyleSeven">Paystack (0.00% Charges)
+                    <svg class="bi bi-arrow-down-short" width="24" height="24" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L7.5 10.293V4.5A.5.5 0 0 1 8 4z"></path>
+                    </svg>
+                  </h6>
+                </div>
+                <div class="accordion-collapse collapse show" id="accordionStyleSeven" aria-labelledby="accordionSeven" data-bs-parent="#accordionStyle3">
+                  <div class="accordion-body">
+
+                    <form id="paystackForm">
+                        <div class="mb-3">
+                            <label for="amountInput" class="form-label">Amount</label>
+                            <input type="number" class="form-control" id="amountInput" name="amount">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Fund Wallet</button>
+                    </form>
+                    <p class="mb-0 mt-3 text-danger">Once you are in the payment interface, you can choose to pay using bank transfer or your card or USSD.</p>
+
+                  </div>
+                </div>
+              </div>
+              {{-- <div class="accordion-item">
                 <div class="accordion-header" id="accordionSeven">
                   <h6 class="shadow-sm rounded border" data-bs-toggle="collapse" data-bs-target="#accordionStyleSeven" aria-expanded="true" aria-controls="accordionStyleSeven">Reserved Account Numbers
                     <svg class="bi bi-arrow-down-short" width="24" height="24" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -67,12 +102,14 @@
 
                   </div>
                 </div>
-              </div>
+              </div> --}}
+             
+             
               <!-- Single Accordion -->
-              <div class="accordion-item">
+              {{-- <div class="accordion-item">
                 <div class="accordion-header" id="accordionEight">
                     <h6 class="shadow-sm rounded collapsed border" data-bs-toggle="collapse" data-bs-target="#accordionStyleEight" aria-expanded="false" aria-controls="accordionStyleEight">
-                        Paystack
+                        Paystack (0.00% Charges)
                         <svg class="bi bi-arrow-down-short" width="24" height="24" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L7.5 10.293V4.5A.5.5 0 0 1 8 4z"></path>
                         </svg>
@@ -87,16 +124,16 @@
                             </div>
                             <button type="submit" class="btn btn-primary">Fund Wallet</button>
                         </form>
-                        {{-- <p class="mb-0 mt-3">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quisquam, a cupiditate.</p> --}}
+                        <p class="mb-0 mt-3">Once you are in the payment interface, you can choose to pay using bank transfer or your card or USSD.</p>
                     </div>
                 </div>
-            </div>
+            </div> --}}
             
               <!-- Single Accordion -->
               <div class="accordion-item">
                 <div class="accordion-header" id="accordionNine">
                     <h6 class="shadow-sm rounded collapsed border" data-bs-toggle="collapse" data-bs-target="#accordionStyleNine" aria-expanded="false" aria-controls="accordionStyleNine">
-                        Manual Bank Transfer 
+                        Manual Bank Transfer (0.00% Charges)
                         <svg class="bi bi-arrow-down-short" width="24" height="24" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L7.5 10.293V4.5A.5.5 0 0 1 8 4z"></path>
                         </svg>
@@ -110,6 +147,21 @@
                         <p class="mb-1"><strong>Account Name:</strong> KAtibu Umar Muhammad</p>
                         <p class="mb-3"><strong>Reference:</strong> Please use your username as the description/reference when making the transfer.</p>
                         <p class="mb-0"><strong>Username:</strong> <span id="username">{{ auth()->user()->username }}</span> <button class="btn btn-sm btn-secondary" onclick="copyText('username')">Copy Username</button></p>
+                    </div>
+                </div>
+            </div>
+              <div class="accordion-item">
+                <div class="accordion-header" id="accordionTen">
+                    <h6 class="shadow-sm rounded collapsed border" data-bs-toggle="collapse" data-bs-target="#accordionStyleTen" aria-expanded="false" aria-controls="accordionStyleTen">
+                        Reserved Account Numbers (1% Charges)
+                        <svg class="bi bi-arrow-down-short" width="24" height="24" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L7.5 10.293V4.5A.5.5 0 0 1 8 4z"></path>
+                        </svg>
+                    </h6>
+                </div>
+                <div class="accordion-collapse collapse" id="accordionStyleTen" aria-labelledby="accordionTen" data-bs-parent="#accordionStyle10">
+                    <div class="accordion-body">
+                        <p class="mb-3">Coming soon</p>
                     </div>
                 </div>
             </div>

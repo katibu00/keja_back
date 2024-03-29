@@ -11,32 +11,33 @@
                 {{-- <div class="card-header bg-primary text-white">
             <h4 class="my-0">User Balance</h4>
           </div> --}}
-                <div class="card-body">
-                    <div class="row g-3">
-                        <div class="col-md-6">
-                            <div class="card bg-light mb-3">
-                                <div class="card-body">
-                                    <h5 class="card-title">
-                                        <i class="bi bi-wallet2 me-3"></i>Main Balance
-                                    </h5>
-                                    <p id="main-balance" class="card-text display-6">₦{{ auth()->user()->wallet ? number_format(auth()->user()->wallet->main_balance, 2) : 'N/A' }}</p>
-                                </div>
-                                
-                            </div>
+          <div class="card-body">
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <div class="card bg-light mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <i class="bi bi-wallet2 me-3"></i>Main Balance
+                            </h5>
+                            <p id="main-balance" class="card-text display-6">₦{{ auth()->user()->wallet ? number_format(auth()->user()->wallet->main_balance, 2) : 'N/A' }}</p>
+                            <!-- Add funds button -->
+                            <a href="{{ route('wallet.index') }}" class="btn btn-primary btn-sm">Add Funds</a>
                         </div>
-                        <div class="col-md-6">
-                            <div class="card bg-success text-white mb-3">
-                                <div class="card-body">
-                                    <h5 class="card-title">
-                                        <i class="bi bi-gift me-3"></i>Bonus Balance
-                                    </h5>
-                                    <p id="bonus-balance" class="card-text display-6">{{ auth()->user()->wallet ? number_format(auth()->user()->wallet->bonus_balance, 2) : 'N/A' }} MB</p>
-                                </div>
-                            </div>
-                        </div>
-                        
                     </div>
                 </div>
+                <div class="col-md-6">
+                    <div class="card bg-success text-white mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <i class="bi bi-gift me-3"></i>Bonus Balance
+                            </h5>
+                            <p id="bonus-balance" class="card-text display-6">{{ auth()->user()->wallet ? number_format(auth()->user()->wallet->bonus_balance, 2) : 'N/A' }} MB</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
                 {{-- <div class="card-footer text-muted">
                     Updated just now
                 </div> --}}
@@ -56,7 +57,7 @@
                                     <p class="mb-0">Transactions</p>
                                 </div>
                             </a>
-                        </div>                        
+                        </div>
                         <div class="col-4">
                             <div class="feature-card mx-auto">
                                 <a href="https://wa.me/2348033174228?text=My%20name%20is" target="_blank" rel="noopener noreferrer">
@@ -67,7 +68,6 @@
                                 </a>
                             </div>
                         </div>
-                        
                         <div class="col-4">
                             <div class="feature-card mx-auto">
                                 <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
@@ -81,11 +81,33 @@
                                 </form>
                             </div>
                         </div>
-                        
+                        <!-- New Menu Icons -->
+                        <div class="col-4">
+                            <div class="feature-card mx-auto">
+                                <a href="#buydata">
+                                    <div class="card mx-auto bg-gray">
+                                        <i class="mx-auto bi bi-file-earmark-bar-graph me-3"></i>
+                                    </div>
+                                    <p class="mb-0">Buy Data</p>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="feature-card mx-auto">
+                                <a href="{{ route('pricing.plans') }}">
+                                    <div class="card mx-auto bg-gray">
+                                        <i class="mx-auto bi bi-cash me-3"></i>
+                                    </div>
+                                    <p class="mb-0">Pricing Plans</p>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- End of New Menu Icons -->
                     </div>
                 </div>
             </div>
         </div>
+
 
 
         <div class="container direction-rtl">
@@ -127,6 +149,7 @@
             <h4 class="my-0 text-white">Buy Data</h4>
           </div>
                 <div class="card-body">
+                    <span id="buydata"></span>
                     <form id="buy_data_form">
                         <input type="hidden" id="bonusPerGB" value="{{ $bonusPerGB }}">
 
@@ -357,7 +380,7 @@ document.getElementById('number').addEventListener('input', function () {
                             var dataPlansHTML = '';
                             dataPlansHTML += '<option value=""></option>'
                             $.each(dataPlans, function(index, dataPlan) {
-                                dataPlansHTML += '<option value="' + dataPlan.plan_id + '" data-plan_price="' + dataPlan.selling_price + '" data-plan_amount="' + dataPlan.amount + '">' + dataPlan.amount + '</option>';
+                                dataPlansHTML += '<option value="' + dataPlan.plan_id + '" data-plan_price="' + dataPlan.selling_price + '" data-plan_amount="' + dataPlan.amount + '">' + dataPlan.amount + ' - ' + dataPlan.plan_type.toUpperCase() + ' - ' + dataPlan.validity + '</option>';
                             });
                             amountField.html(dataPlansHTML);
                             var contactHTML = '';

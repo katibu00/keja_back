@@ -182,7 +182,6 @@ Route::group(['prefix' => 'wallet', 'middleware' => ['auth', 'regular']], functi
 Route::post('/save-contact',[ContactController::class, 'saveNewContact'])->name('save-contact')->middleware('regular');
 
 
-
 Route::group(['prefix' => 'data-plans', 'middleware' => ['auth', 'admin']], function () {
    
     // Route for displaying all data plans
@@ -224,6 +223,7 @@ Route::get('/account', [AccountController::class, 'index'])->name('account.index
 Route::post('/account-menu/switch-account', [AccountController::class, 'switchAccount'])->name('account.menu.switch');
 
 
+Route::get('/pricing-plans', [DataPlansController::class, 'pricingIndex'])->name('pricing.plans');
 
 
 
