@@ -10,7 +10,7 @@
             <div class="alert-text">
                 <h6>Need Assistance?</h6>
                 <span>If you're having difficulty funding your account or have any questions, our team is here to help! Contact us on WhatsApp for assistance.</span>
-                <a class="btn btn-sm btn-creative btn-info mt-2" href="https://wa.me/2349122090070" target="_blank">Contact Us on WhatsApp</a>
+                <a class="btn btn-sm btn-creative btn-info mt-2" href="https://wa.me/2348033174228" target="_blank">Contact Us on WhatsApp</a>
             </div>
             <button class="btn btn-close position-relative p-1 ms-auto" type="button" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
@@ -165,11 +165,6 @@
           </div>
         </div>
       </div>
-
-
-
-
-
     
     </div>
 

@@ -108,7 +108,7 @@
     </style>
 
 <div class="whatsapp-float">
-  <a href="https://wa.me/2349122090070?text=Hello%20there!%20I%20need%20support%20from%20SubNow%20NG." target="_blank" class="whatsapp-chat">
+  <a href="https://wa.me/2348033174228?text=Hello%20there!%20I%20need%20support%20from%20SubNow%20NG." target="_blank" class="whatsapp-chat">
     <i class="mx-auto bi bi-whatsapp"></i>
 </a>
 
