@@ -53,16 +53,13 @@ class UsersController extends Controller
         $fundingTransaction->notes = $notes;
         $fundingTransaction->save();
 
-        // If the user doesn't have a wallet, create one and then increment the balance
         if (!$user->wallet) {
             $wallet = new Wallet(['main_balance' => $validatedData['amount']]);
             $user->wallet()->save($wallet);
         } else {
-            // Increment the user's wallet balance using the increment method
             $user->wallet()->increment('main_balance', $validatedData['amount']);
         }
 
-        // Return a response indicating success
         return response()->json(['message' => 'Manual funding submitted successfully'], 200);
     }
 

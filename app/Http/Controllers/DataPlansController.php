@@ -74,7 +74,6 @@ class DataPlansController extends Controller
     }
 
 
-   
     public function fetchPlans(Request $request)
     {
         $networkId = $request->input('networkId');
@@ -83,6 +82,7 @@ class DataPlansController extends Controller
 
         $dataPlans = DataPlan::where('network_name', $networkId)
                             ->where('provider_id', $activePlanProviderId)
+                            ->where('plan_type','!=','airtime')
                             ->get();
 
         $contacts = Contact::where('network', $networkId)

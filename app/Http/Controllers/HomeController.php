@@ -31,40 +31,33 @@ class HomeController extends Controller
     }
 
 
-  public function admin()
-{
-    // Get the total number of users
-    $totalUsers = User::count();
-    $registeredToday = User::whereDate('created_at', today())->count();
+    public function admin()
+    {
+        $totalUsers = User::count();
+        $registeredToday = User::whereDate('created_at', today())->count();
 
-    // Get the total wallet balance
-    $totalWalletBalance = Wallet::sum('main_balance');
+        $totalWalletBalance = Wallet::sum('main_balance');
 
-    // Calculate today's total funding
-    $todayTotalFunding = FundingTransaction::whereDate('created_at', today())->sum('amount');
-    $TotalFunding= FundingTransaction::sum('amount');
+        $todayTotalFunding = FundingTransaction::whereDate('created_at', today())->sum('amount');
+        $TotalFunding= FundingTransaction::sum('amount');
 
-    // Calculate today's data purchase in GB
-    $dataPurchases = PurchaseTransaction::where('purchase_type', 'data')
-        ->whereDate('created_at', today())
-        ->get();
-    $totalDataPurchaseInGB = 0;
-    foreach ($dataPurchases as $purchase) {
-        $dataPlan = DataPlan::where('plan_id', $purchase->data_plan_id)->first();
-        $totalDataPurchaseInGB += $dataPlan ? $this->decodeAmount($dataPlan->amount) : 0;
+        $dataPurchases = PurchaseTransaction::where('purchase_type', 'data')
+            ->whereDate('created_at', today())
+            ->get();
+        $totalDataPurchaseInGB = 0;
+        foreach ($dataPurchases as $purchase) {
+            $dataPlan = DataPlan::where('plan_id', $purchase->data_plan_id)->first();
+            $totalDataPurchaseInGB += $dataPlan ? $this->decodeAmount($dataPlan->amount) : 0;
+        }
+
+        $todayAirtimePurchase = PurchaseTransaction::where('purchase_type', 'airtime')
+            ->whereDate('created_at', today())
+            ->sum('data_plan_id');
+
+        $newRegularUsers = User::whereDate('created_at', today())->where('user_type', 'regular')->get();
+
+        return view('admin.home', compact('totalUsers','registeredToday', 'totalWalletBalance', 'todayTotalFunding', 'TotalFunding','totalDataPurchaseInGB', 'todayAirtimePurchase', 'newRegularUsers'));
     }
-
-    // Calculate today's airtime purchase
-    $todayAirtimePurchase = PurchaseTransaction::where('purchase_type', 'airtime')
-        ->whereDate('created_at', today())
-        ->sum('data_plan_id');
-
-    // Get regular users who registered today
-    $newRegularUsers = User::whereDate('created_at', today())->where('user_type', 'regular')->get();
-
-    // Pass the statistics to the view
-    return view('admin.home', compact('totalUsers','registeredToday', 'totalWalletBalance', 'todayTotalFunding', 'TotalFunding','totalDataPurchaseInGB', 'todayAirtimePurchase', 'newRegularUsers'));
-}
 
 
     private function decodeAmount($amount)
