@@ -35,6 +35,7 @@ class HomeController extends Controller
 {
     // Get the total number of users
     $totalUsers = User::count();
+    $registeredToday = User::whereDate('created_at', today())->count();
 
     // Get the total wallet balance
     $totalWalletBalance = Wallet::sum('main_balance');
@@ -62,7 +63,7 @@ class HomeController extends Controller
     $newRegularUsers = User::whereDate('created_at', today())->where('user_type', 'regular')->get();
 
     // Pass the statistics to the view
-    return view('admin.home', compact('totalUsers', 'totalWalletBalance', 'todayTotalFunding', 'TotalFunding','totalDataPurchaseInGB', 'todayAirtimePurchase', 'newRegularUsers'));
+    return view('admin.home', compact('totalUsers','registeredToday', 'totalWalletBalance', 'todayTotalFunding', 'TotalFunding','totalDataPurchaseInGB', 'todayAirtimePurchase', 'newRegularUsers'));
 }
 
 
