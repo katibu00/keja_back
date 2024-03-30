@@ -140,27 +140,8 @@ class DataPlansController extends Controller
     }
 
 
-    // public function pricingIndex()
-    // {
-    //     $networkColors = [
-    //         'MTN' => 'yellow',
-    //         'Glo' => 'green',
-    //         '9mobile' => 'darkgreen',
-    //         'Airtel' => 'red',
-    //     ];
-
-    //     // Group data plans by network name
-    //     $dataPlans = DataPlan::where('active', true)
-    //         ->orderBy('network_name')
-    //         ->get()
-    //         ->groupBy('network_name');
-
-    //     return view('pages.pricing_plans', compact('dataPlans','networkColors'));
-    // }
-
     public function pricingIndex()
     {
-        // Define network colors
         $networkColors = [
             'mtn' => 'yellow',
             'glo' => 'green',
@@ -168,13 +149,11 @@ class DataPlansController extends Controller
             'airtel' => 'red',
         ];
 
-        // Group data plans by network name
         $dataPlans = DataPlan::where('active', true)
             ->orderBy('network_name')
             ->get()
             ->groupBy('network_name');
 
-        // Convert network names to lowercase for case insensitivity
         $dataPlans = $dataPlans->map(function ($plans, $networkName) use ($networkColors) {
             $networkName = strtolower($networkName); // Convert network name to lowercase
             $color = isset($networkColors[$networkName]) ? $networkColors[$networkName] : 'gray'; // Default to gray if not found

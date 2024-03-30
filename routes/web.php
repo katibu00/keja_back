@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AccountController;
+use App\Http\Controllers\BuyAirtimeController;
 use App\Http\Controllers\BuyDataController;
 use App\Http\Controllers\ChatController;
 use App\Http\Controllers\DataPlansController;
@@ -117,6 +118,15 @@ Route::group(['middleware' => ['auth', 'regular']], function () {
 
     Route::get('/transactions', [TransactionsController::class, 'index'])->name('transactions.index');
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
+
+
+    Route::get('/buy-airtime', [BuyAirtimeController::class, 'index'])->name('buy.airtime');
+
+    Route::post('/fetch-airtime-plans', [BuyAirtimeController::class, 'fetchPlans'])->name('fetch-airtime-plans');
+
+
+    Route::post('/buy-airtime', [BuyAirtimeController::class, 'buyAirtime'])->name('buy.airtime.purchase');
+
 
 
 });

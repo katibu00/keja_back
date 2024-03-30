@@ -108,6 +108,9 @@
                                 <select class="form-select" id="data_plan_type" name="data_plan_type">
                                     <option value="sme">SME</option>
                                     <option value="gifting">Gifting</option>
+                                    <option value="corporate gifting">Corporate Gifting</option>
+                                    <option value="sme2">SME2</option>
+                                    <option value="airtime">Airtime</option>
                                 </select>
                             </div>
                             <div class="col-md-4 mb-3">
