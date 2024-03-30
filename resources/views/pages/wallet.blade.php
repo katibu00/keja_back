@@ -188,7 +188,7 @@
                 <div class="modal-body">
                     <!-- Embed your video here, for example: -->
                     <div class="embed-responsive embed-responsive-16by9">
-                        <iframe width="380" height="515" src="https://www.youtube.com/embed/KxMRGWs7y3E?si=sGCNniYdc8bND97U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>                   
+                        <iframe width="330" height="515" src="https://www.youtube.com/embed/KxMRGWs7y3E?si=sGCNniYdc8bND97U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>                   
                      </div>
                 </div>
                 <div class="modal-footer">
