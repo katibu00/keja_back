@@ -32,9 +32,18 @@
       <div class="container">
         <div class="card bg-primary rounded-0 rounded-top">
             <div class="card-body text-center py-3">
-              <h6 class="mb-0 text-white line-height-1">Fund Your Wallet</h6>
+                <h6 class="mb-0 text-white line-height-1">Fund Your Wallet</h6>
+                <div class="mt-3">
+                    <p class="text-white mb-2">Need help with funding your wallet?</p>
+                    <button type="button" class="btn btn-outline-light me-2" data-bs-toggle="modal" data-bs-target="#videoModal">
+                        <i class="bi bi-play-circle-fill me-1"></i> Watch Short Video
+                    </button>
+                    <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#instructionsModal">
+                        <i class="bi bi-file-text-fill me-1"></i> Read Step-by-Step Instructions
+                    </button>
+                </div>
             </div>
-          </div>
+        </div>
         <div class="card">
           <div class="card-body">
             <div class="accordion accordion-style-three" id="accordionStyle3">
@@ -55,7 +64,7 @@
                             <label for="amountInput" class="form-label">Enter Amount</label>
                             <input type="number" class="form-control" id="amountInput" name="amount">
                         </div>
-                        <button type="submit" class="btn btn-primary">Proceed</button>
+                        <button type="submit" class="btn btn-primary">Proceed to Pay</button>
                     </form>
                     <p class="mb-0 mt-3 text-danger">Once you are in the payment interface, you can choose to pay using bank transfer or your card or USSD.</p>
 
@@ -167,6 +176,54 @@
       </div>
     
     </div>
+
+
+    <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="videoModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen-md-down">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h6 class="modal-title" id="videoModalLabel">How to fund your account instantly using paystack</h6>
+                    <button class="btn btn-close p-1 ms-auto" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Embed your video here, for example: -->
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe width="480" height="415" src="https://www.youtube.com/embed/KxMRGWs7y3E?si=sGCNniYdc8bND97U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>                   
+                     </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-sm btn-secondary" type="button" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="instructionsModal" tabindex="-1" aria-labelledby="instructionsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen-md-down">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h6 class="modal-title" id="instructionsModalLabel">How to Fund Your Account using Paystack</h6>
+                    <button class="btn btn-close p-1 ms-auto" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <ol>
+                        <li>Enter the desired amount in the provided form below and click "Proceed to Pay".</li>
+                        <li>A new interface will open for payment via Paystack. Choose "Bank Transfer" or other suitable methods.</li>
+                        <li>If you choose Bank Transfer, copy the provided account number and minimize your browser.</li>
+                        <li>Open your banking app, transfer the desired amount, and then minimize your banking app.</li>
+                        <li>Return to your browser and click "I have transferred the money".</li>
+                        <li>Your account will be credited instantly upon confirmation.</li>
+                    </ol>
+                    <p>Note: Do not close the payment interface in your browser during the process. Also, wait a few minutes until you receive a success message before refreshing your wallet.</p>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-sm btn-secondary" type="button" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
 
 @endsection
 @section('js')

@@ -8,7 +8,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <!-- Title -->
-    <title>Forgot Password | Spectranet</title>
+    <title>Forgot Password | Subnow</title>
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet">
@@ -47,7 +47,7 @@
     <!-- Login Wrapper Area -->
     <div class="login-wrapper d-flex align-items-center justify-content-center">
       <div class="custom-container">
-        <div class="text-center px-4"><img class="login-intro-img" src="/frontend/img/bg-img/37.png" alt=""></div>
+        <div class="text-center px-4"><img class="login-intro-img" src="/logo.png" alt=""></div>
         @if(session('status'))
             <div class="alert alert-success mt-3">
                 {{ session('status') }}
@@ -75,6 +75,56 @@
             </form>
             
         </div>
+
+
+
+        <style>
+          .whatsapp-float {
+            position: fixed;
+            bottom: 70px;
+            right: 20px;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+          }
+        
+          .whatsapp-chat {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #25d366;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            color: #fff;
+            font-size: 24px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+            margin-left: 10px; /* Added space between text and icon */
+          }
+        
+          .whatsapp-chat:hover {
+            background-color: #128c7e;
+          }
+        
+          .whatsapp-text {
+            color: #000; /* Black color for the text */
+            font-size: 12px; /* Smaller font size */
+          }
+        </style>
+        @php
+        $number = App\Models\Charges::select('whatsapp_number')->first();
+        @endphp
+        
+        <div class="whatsapp-float">
+          <span class="whatsapp-text">Need Help?</span> <!-- Text is now to the left -->
+          <a href="https://wa.me/{{ $number->whatsapp_number }}?text=Hello!%20SubNow%20NG..." target="_blank" class="whatsapp-chat">
+              <i class="mx-auto bi bi-whatsapp"></i>
+          </a>
+      </div>
+        
+
+
       </div>
     </div>
     <!-- All JavaScript Files -->

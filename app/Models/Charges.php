@@ -12,7 +12,7 @@ class Charges extends Model
     protected $fillable = [
         'welcome_bonus',
         'referral_bonus',
-        'whatsapp_group_link',
+        'whatsapp_number',
         'funding_charges_description',
         'funding_charges_amount',
         'charges_per_chat',

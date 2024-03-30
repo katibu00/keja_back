@@ -161,7 +161,7 @@ class SettingsController extends Controller
             'funding_charges_amount' => 'required|numeric',
             'welcome_bonus' => 'required|numeric',
             'referral_bonus' => 'required|numeric',
-            'whatsapp_group_link' => 'nullable|string:255',
+            'whatsapp_number' => 'nullable|string:255',
             'funding_charges_description' => 'nullable|string:255',
         ]);
     

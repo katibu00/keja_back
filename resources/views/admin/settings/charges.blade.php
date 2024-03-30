@@ -9,7 +9,7 @@
 
                 <div class="card">
                     <div class="card-header">
-                        <h5 class="card-title">Charges Configuration</h5>
+                        <h5 class="card-title">Main Configuration</h5>
                     </div>
                     <div class="card-body">
                         @if(session('success'))
@@ -60,9 +60,9 @@
                                     value="{{ $charges->funding_charges_amount ?? '' }}">
                             </div>
                             <div class="mb-3">
-                                <label for="whatsapp_group_link" class="form-label">WhatsApp Group Link</label>
-                                <input type="text" class="form-control" id="whatsapp_group_link" name="whatsapp_group_link"
-                                    value="{{ $charges->whatsapp_group_link ?? '' }}">
+                                <label for="whatsapp_number" class="form-label">WhatsApp Number</label>
+                                <input type="text" class="form-control" id="whatsapp_number" name="whatsapp_number"
+                                    value="{{ $charges->whatsapp_number ?? '' }}">
                             </div>
                             <button type="submit" class="btn btn-primary">Save</button>
                         </form>

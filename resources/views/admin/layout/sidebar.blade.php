@@ -90,6 +90,22 @@ $user = auth()->user();
         <ul class="nav-main-submenu">
          
           <li class="nav-main-item">
+            <a class="nav-main-link  {{ $route == 'charges' ? 'active' : '' }}" href="{{ route('charges') }}">
+              <span class="nav-main-link-name">Main Settings</span>
+            </a>
+          </li>
+          <li class="nav-main-item">
+            <a class="nav-main-link  {{ $route == 'pop_up_notification' ? 'active' : '' }}" href="{{ route('pop_up_notification') }}">
+              <span class="nav-main-link-name">Pop Up Notification</span>
+            </a>
+          </li>
+          <li class="nav-main-item">
+            <a class="nav-main-link  {{ $route == 'marquee_notification' ? 'active' : '' }}" href="{{ route('marquee_notification') }}">
+              <span class="nav-main-link-name">Marquee Notification</span>
+            </a>
+          </li>
+
+          <li class="nav-main-item">
             <a class="nav-main-link  {{ $route == 'openai_key' ? 'active' : '' }}" href="{{ route('openai_key') }}">
               <span class="nav-main-link-name">OpenAI API Key</span>
             </a>
@@ -110,23 +126,6 @@ $user = auth()->user();
             </a>
           </li>
 
-          <li class="nav-main-item">
-            <a class="nav-main-link  {{ $route == 'charges' ? 'active' : '' }}" href="{{ route('charges') }}">
-              <span class="nav-main-link-name">Billing and Bonuses</span>
-            </a>
-          </li>
-          <li class="nav-main-item">
-            <a class="nav-main-link  {{ $route == 'pop_up_notification' ? 'active' : '' }}" href="{{ route('pop_up_notification') }}">
-              <span class="nav-main-link-name">Pop Up Notification</span>
-            </a>
-          </li>
-          <li class="nav-main-item">
-            <a class="nav-main-link  {{ $route == 'marquee_notification' ? 'active' : '' }}" href="{{ route('marquee_notification') }}">
-              <span class="nav-main-link-name">Marquee Notification</span>
-            </a>
-          </li>
-
-        
         </ul>
       </li>
     

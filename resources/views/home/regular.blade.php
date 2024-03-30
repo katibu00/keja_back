@@ -58,15 +58,19 @@
                                 </div>
                             </a>
                         </div>
+
+                        @php
+                            $number = App\Models\Charges::select('whatsapp_number')->first();
+                        @endphp
                         <div class="col-4">
                             <div class="feature-card mx-auto">
-                                <a href="https://wa.me/2348033174228?text=My%20name%20is" target="_blank" rel="noopener noreferrer">
+                                <a href="https://wa.me/{{ $number->whatsapp_number }}?text=My%20name%20is" target="_blank" rel="noopener noreferrer">
                                     <div class="card mx-auto bg-gray">
                                         <i class="mx-auto bi bi-whatsapp me-3"></i>
                                     </div>
-                                    <p class="mb-0">WhatsApp us</p>
+                                    <p class="mb-0">Contact Us</p>
                                 </a>
-                            </div>
+                            </div>                            
                         </div>
                         <div class="col-4">
                             <div class="feature-card mx-auto">

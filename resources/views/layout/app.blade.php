@@ -76,41 +76,49 @@
 
     <style>
       .whatsapp-float {
-          position: fixed;
-          bottom: 70px;
-          right: 20px;
-          z-index: 1000;
+        position: fixed;
+        bottom: 70px;
+        right: 20px;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
       }
-
+    
       .whatsapp-chat {
-          display: block;
-          width: 40px;
-          height: 40px;
-          background-color: #25d366; 
-          border-radius: 50%;
-          text-align: center;
-          line-height: 60px;
-          color: #fff;
-          font-size: 24px;
-          box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-          transition: background-color 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #25d366;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        color: #fff;
+        font-size: 24px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.3s ease;
+        margin-left: 10px; /* Added space between text and icon */
       }
-
+    
       .whatsapp-chat:hover {
-          background-color: #128c7e; 
+        background-color: #128c7e;
       }
-
-      .whatsapp-chat i {
-          position: relative;
-          top: 50%;
-          transform: translateY(-50%);
+    
+      .whatsapp-text {
+        color: #000; /* Black color for the text */
+        font-size: 12px; /* Smaller font size */
       }
     </style>
 
-<div class="whatsapp-float">
-  <a href="https://wa.me/2348033174228?text=Hello%20there!%20I%20need%20support%20from%20SubNow%20NG." target="_blank" class="whatsapp-chat">
-    <i class="mx-auto bi bi-whatsapp"></i>
-</a>
+    @php
+      $number = App\Models\Charges::select('whatsapp_number')->first();
+    @endphp
+    
+    <div class="whatsapp-float">
+      <span class="whatsapp-text">Need Help?</span> <!-- Text is now to the left -->
+      <a href="https://wa.me/{{ $number->whatsapp_number }}?text=Hello!%20SubNow%20NG..." target="_blank" class="whatsapp-chat">
+          <i class="mx-auto bi bi-whatsapp"></i>
+      </a>
+  </div>
 
 </div>
     <!-- Footer Nav -->
