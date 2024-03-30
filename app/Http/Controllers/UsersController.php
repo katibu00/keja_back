@@ -3,11 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\ManualFunding;
+use App\Models\FundingTransaction;
 use App\Models\User;
 use App\Models\Wallet;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+
 class UsersController extends Controller
 {
     public function regular()
@@ -34,15 +35,24 @@ class UsersController extends Controller
             'userName' => 'required',
             'amount' => 'required|numeric',
         ]);
-    
+
         $user = User::find($validatedData['userId']);
-    
-        // Create a new manual funding record
-        $manualFunding = new ManualFunding();
-        $manualFunding->user_id = $user->id;
-        $manualFunding->amount = $validatedData['amount'];
-        $manualFunding->save();
-    
+
+        // Save the funding transaction
+        $transactionReference = uniqid('TRX-');
+        $paymentMethod = 'manual';
+        $status = 'success';
+        $notes = 'Manual funding transaction';
+
+        $fundingTransaction = new FundingTransaction();
+        $fundingTransaction->user_id = $user->id;
+        $fundingTransaction->transaction_reference = $transactionReference;
+        $fundingTransaction->amount = $validatedData['amount'];
+        $fundingTransaction->payment_method = $paymentMethod;
+        $fundingTransaction->status = $status;
+        $fundingTransaction->notes = $notes;
+        $fundingTransaction->save();
+
         // If the user doesn't have a wallet, create one and then increment the balance
         if (!$user->wallet) {
             $wallet = new Wallet(['main_balance' => $validatedData['amount']]);
@@ -51,9 +61,7 @@ class UsersController extends Controller
             // Increment the user's wallet balance using the increment method
             $user->wallet()->increment('main_balance', $validatedData['amount']);
         }
-    
-        // Perform any additional operations with the manual funding record
-    
+
         // Return a response indicating success
         return response()->json(['message' => 'Manual funding submitted successfully'], 200);
     }

@@ -3,14 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\Charges;
+use App\Models\DataPlan;
+use App\Models\FundingTransaction;
 use App\Models\MarqueeNotification;
-use App\Models\MonnifyTransfer;
 use App\Models\PopUp;
-use Illuminate\Http\Request;
+use App\Models\PurchaseTransaction;
 use App\Models\ReservedAccount;
 use App\Models\User;
 use App\Models\Wallet;
-use Carbon\Carbon;
 
 class HomeController extends Controller
 {
@@ -25,26 +25,60 @@ class HomeController extends Controller
         $bonusPerGB = $firstRowCharges ? $firstRowCharges->bonus_per_gb : null;
         $funding_charges_description = $firstRowCharges ? $firstRowCharges->funding_charges_description : null;
 
-
         $marqueeNotification = MarqueeNotification::first();
 
-        return view('home.regular', compact('accounts', 'popUp', 'funding_charges_description','bonusPerGB', 'marqueeNotification'));
+        return view('home.regular', compact('accounts', 'popUp', 'funding_charges_description', 'bonusPerGB', 'marqueeNotification'));
     }
 
 
-    public function admin()
+  public function admin()
+{
+    // Get the total number of users
+    $totalUsers = User::count();
+
+    // Get the total wallet balance
+    $totalWalletBalance = Wallet::sum('main_balance');
+
+    // Calculate today's total funding
+    $todayTotalFunding = FundingTransaction::whereDate('created_at', today())->sum('amount');
+    $TotalFunding= FundingTransaction::sum('amount');
+
+    // Calculate today's data purchase in GB
+    $dataPurchases = PurchaseTransaction::where('purchase_type', 'data')
+        ->whereDate('created_at', today())
+        ->get();
+    $totalDataPurchaseInGB = 0;
+    foreach ($dataPurchases as $purchase) {
+        $dataPlan = DataPlan::where('plan_id', $purchase->data_plan_id)->first();
+        $totalDataPurchaseInGB += $dataPlan ? $this->decodeAmount($dataPlan->amount) : 0;
+    }
+
+    // Calculate today's airtime purchase
+    $todayAirtimePurchase = PurchaseTransaction::where('purchase_type', 'airtime')
+        ->whereDate('created_at', today())
+        ->sum('data_plan_id');
+
+    // Get regular users who registered today
+    $newRegularUsers = User::whereDate('created_at', today())->where('user_type', 'regular')->get();
+
+    // Pass the statistics to the view
+    return view('admin.home', compact('totalUsers', 'totalWalletBalance', 'todayTotalFunding', 'TotalFunding','totalDataPurchaseInGB', 'todayAirtimePurchase', 'newRegularUsers'));
+}
+
+
+    private function decodeAmount($amount)
     {
-        // Get the required statistics
-        $totalUsers = User::count();
-        $totalWalletBalance = Wallet::sum('main_balance');
-        $totalFundings = MonnifyTransfer::sum('amount_paid');
-    
-    
-        // Calculate the number of new users (registered within the last 30 days)
-        $newUsers = User::where('created_at', '>=', Carbon::now()->subDays(3))->count();
-    
-        // Pass the statistics to the view
-        return view('admin.home', compact('totalUsers', 'totalWalletBalance', 'totalFundings', 'newUsers'));
+        preg_match('/\d+/', $amount, $matches);
+        if (!empty($matches)) {
+            $value = intval($matches[0]);
 
+            if (strpos($amount, 'GB') !== false) {
+                return $value;
+            } elseif (strpos($amount, 'MB') !== false) {
+                return $value / 1000;
+            }
+        }
+        return false;
     }
+
 }

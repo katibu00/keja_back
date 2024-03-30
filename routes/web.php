@@ -109,8 +109,6 @@ Route::group(['prefix' => 'beneficiaries', 'middleware' => ['auth', 'regular']],
     Route::delete('/delete', [ContactController::class, 'delete'])->name('contacts.destroy');
 });
 
-
-
 Route::group(['middleware' => ['auth', 'regular']], function () {
 
     Route::post('/fetch-data-plans', [DataPlansController::class, 'fetchPlans'])->name('fetch-data-plans');
@@ -119,11 +117,9 @@ Route::group(['middleware' => ['auth', 'regular']], function () {
     Route::get('/transactions', [TransactionsController::class, 'index'])->name('transactions.index');
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
 
-
     Route::get('/buy-airtime', [BuyAirtimeController::class, 'index'])->name('buy.airtime');
 
     Route::post('/fetch-airtime-plans', [BuyAirtimeController::class, 'fetchPlans'])->name('fetch-airtime-plans');
-
 
     Route::post('/buy-airtime', [BuyAirtimeController::class, 'buyAirtime'])->name('buy.airtime.purchase');
 
@@ -149,10 +145,8 @@ Route::group(['prefix' => 'settings', 'middleware' => ['auth', 'admin']], functi
     Route::get('/charges', [SettingsController::class, 'charges'])->name('charges');
     Route::post('/charges', [SettingsController::class, 'saveCharges']);
 
-
     Route::get('/pop_up_notification', [SettingsController::class, 'popup'])->name('pop_up_notification');
     Route::post('/pop_up_notification', [SettingsController::class, 'savePopup']);
-
 
     Route::get('/marquee_notification', [SettingsController::class, 'marquee'])->name('marquee_notification');
     Route::post('/marquee_notification', [SettingsController::class, 'saveMarquee'])->name('marquee_notification.save');
@@ -171,7 +165,6 @@ Route::group(['prefix' => 'users', 'middleware' => ['auth', 'admin']], function 
 
     Route::post('/admin/submit',  [UsersController::class, 'storeAdmin'])->name('admin.store');
 
-
 });
 
 
@@ -185,19 +178,15 @@ Route::group(['prefix' => 'wallet', 'middleware' => ['auth', 'regular']], functi
     Route::get('/', [WalletController::class, 'index'])->name('wallet.index');
     Route::post('/verify-payment', [WalletController::class, 'creditWallet'])->name('verify-payment');
 
-
 });
 
 
 Route::post('/save-contact',[ContactController::class, 'saveNewContact'])->name('save-contact')->middleware('regular');
 
-
 Route::group(['prefix' => 'data-plans', 'middleware' => ['auth', 'admin']], function () {
    
-    // Route for displaying all data plans
     Route::get('/', [DataPlansController::class, 'index'])->name('data-plans.index');
 
-    // Route for displaying the form to create a new data plan
     Route::get('/create', [DataPlansController::class, 'create'])->name('data-plans.create');
 
     // Route for storing a newly created data plan
@@ -229,9 +218,9 @@ Route::post('/contact-us', [ContactUsController::class, 'submitForm'])->name('co
 
 
 // Route::get('/account', [AccountController::class, 'showAccountMenu'])->name('account.menu');
+
 Route::get('/account', [AccountController::class, 'index'])->name('account.index');
 Route::post('/account-menu/switch-account', [AccountController::class, 'switchAccount'])->name('account.menu.switch');
-
 
 Route::get('/pricing-plans', [DataPlansController::class, 'pricingIndex'])->name('pricing.plans');
 

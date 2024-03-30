@@ -40,8 +40,8 @@
               <i class="fa fa-money fa-2x opacity-25"></i>
             </div>
             <div>
-              <div class="fs-3 fw-semibold">&#x20A6;{{ @$totalFundings }}</div>
-              <div class="fs-sm fw-semibold text-uppercase text-muted">Total Fundings</div>
+              <div class="fs-3 fw-semibold">&#x20A6;{{ @$todayTotalFunding }}</div>
+              <div class="fs-sm fw-semibold text-uppercase text-muted">Today's Total Funding</div>
             </div>
           </div>
         </a>
@@ -50,15 +50,44 @@
         <a class="block block-rounded block-link-shadow text-end" href="javascript:void(0)">
           <div class="block-content block-content-full d-sm-flex justify-content-between align-items-center">
             <div class="d-none d-sm-block">
-              <i class="fa fa-users fa-2x opacity-25"></i>
+              <i class="fa fa-database fa-2x opacity-25"></i>
             </div>
             <div>
-              <div class="fs-3 fw-semibold">{{ @$newUsers }}</div>
-              <div class="fs-sm fw-semibold text-uppercase text-muted">New Users (Last 3 days)</div>
+              <div class="fs-3 fw-semibold">{{ @$totalDataPurchaseInGB }} GB</div>
+              <div class="fs-sm fw-semibold text-uppercase text-muted">Today's Data Purchase</div>
             </div>
           </div>
         </a>
       </div>
+
+
+      <div class="col-6 col-xl-3">
+        <a class="block block-rounded block-link-shadow text-end" href="javascript:void(0)">
+            <div class="block-content block-content-full d-sm-flex justify-content-between align-items-center">
+                <div class="d-none d-sm-block">
+                    <i class="fa fa-phone fa-2x opacity-25"></i>
+                </div>
+                <div>
+                    <div class="fs-3 fw-semibold">&#x20A6;-</div>
+                    <div class="fs-sm fw-semibold text-uppercase text-muted">Today's Airtime Purchase</div>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="col-6 col-xl-3">
+        <a class="block block-rounded block-link-shadow text-end" href="javascript:void(0)">
+            <div class="block-content block-content-full d-sm-flex justify-content-between align-items-center">
+                <div class="d-none d-sm-block">
+                    <i class="fa fa-money fa-2x opacity-25"></i>
+                </div>
+                <div>
+                    <div class="fs-3 fw-semibold">&#x20A6;{{ @$TotalFunding }}</div>
+                    <div class="fs-sm fw-semibold text-uppercase text-muted">Total Funding</div>
+                </div>
+            </div>
+        </a>
+    </div>
+    
       
     </div>
    

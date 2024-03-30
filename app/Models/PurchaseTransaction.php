@@ -22,6 +22,6 @@ class PurchaseTransaction extends Model
 
     public function data_plan()
     {
-        return $this->belongsTo(DataPlan::class, 'data_plan_id','plan_id');
+        return $this->belongsTo(DataPlan::class, 'plan_id','data_plan_id');
     }
 }

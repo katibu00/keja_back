@@ -16,7 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->string('transaction_reference')->unique();
             $table->decimal('amount', 10, 2);
-            $table->enum('payment_method', ['paystack', 'bank_transfer', 'monnify'])->default('paystack');
+            $table->enum('payment_method', ['paystack', 'bank_transfer', 'monnify','manual'])->default('paystack');
             $table->enum('status', ['pending', 'success', 'failed'])->default('pending');
             $table->text('notes')->nullable();
             $table->timestamps();
