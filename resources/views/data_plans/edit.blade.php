@@ -91,7 +91,10 @@
                                     <select class="form-select" id="plan_type" name="plan_type">
                                         <option value="sme" {{ $dataPlan->plan_type == 'sme' ? 'selected' : '' }}>SME</option>
                                         <option value="gifting" {{ $dataPlan->plan_type == 'gifting' ? 'selected' : '' }}>Gifting</option>
-                                    </select>
+                                        <option value="corporate gifting" {{ $dataPlan->plan_type == 'corporate gifting' ? 'selected' : '' }}>Corporate Gifting</option>
+                                        <option value="sme2" {{ $dataPlan->plan_type == 'sme2' ? 'selected' : '' }}>SME2</option>
+                                        <option value="airtime" {{ $dataPlan->plan_type == 'airtime' ? 'selected' : '' }}>Airtime</option>
+                                    </select>                                    
                                 </div>
                             </div>
 
@@ -111,10 +114,9 @@
                                 </div>
                             </div>
 
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="submit" id="submitEditDataPlan" class="btn btn-primary">Save changes</button>
-                            </div>
+                            <button type="submit" id="submitEditDataPlan" class="btn btn-primary">Save changes</button>
+
+            
                         </form>
                     </div>
                 </div>

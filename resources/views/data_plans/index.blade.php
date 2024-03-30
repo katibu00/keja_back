@@ -36,6 +36,9 @@
                                                 <option value="">All Plan Types</option>
                                                 <option value="sme">SME</option>
                                                 <option value="gifting">Gifting</option>
+                                                <option value="corporate gifting">Corporate Gifting</option>
+                                                <option value="sme2">SME2</option>
+                                                <option value="airtime">Airtime</option>
                                             </select>
                                         </div>
                                         <div class="col-md-auto">
