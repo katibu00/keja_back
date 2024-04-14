@@ -71,7 +71,7 @@
                   </div>
                 </div>
               </div>
-              {{-- <div class="accordion-item">
+              <div class="accordion-item">
                 <div class="accordion-header" id="accordionSeven">
                   <h6 class="shadow-sm rounded border" data-bs-toggle="collapse" data-bs-target="#accordionStyleSeven" aria-expanded="true" aria-controls="accordionStyleSeven">Reserved Account Numbers
                     <svg class="bi bi-arrow-down-short" width="24" height="24" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -105,7 +105,7 @@
 
                   </div>
                 </div>
-              </div> --}}
+              </div>
              
              
               <!-- Single Accordion -->
