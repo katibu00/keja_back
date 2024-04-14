@@ -70,18 +70,18 @@ class RegisterController extends Controller
                 }
             }
 
-            // $accessToken = $this->getAccessToken();
+            $accessToken = $this->getAccessToken();
 
-            // $monnifyReservedAccount = $this->createMonnifyReservedAccount($user, $accessToken, $validatedData);
+            $monnifyReservedAccount = $this->createMonnifyReservedAccount($user, $accessToken, $validatedData);
 
             $user->save();
-            // ReservedAccount::create([
-            //     'user_id' => $user->id,
-            //     'account_reference' => $monnifyReservedAccount->accountReference,
-            //     'customer_email' => $monnifyReservedAccount->customerEmail,
-            //     'customer_name' => $monnifyReservedAccount->customerName,
-            //     'accounts' => json_encode($monnifyReservedAccount->accounts),
-            // ]);
+            ReservedAccount::create([
+                'user_id' => $user->id,
+                'account_reference' => $monnifyReservedAccount->accountReference,
+                'customer_email' => $monnifyReservedAccount->customerEmail,
+                'customer_name' => $monnifyReservedAccount->customerName,
+                'accounts' => json_encode($monnifyReservedAccount->accounts),
+            ]);
 
             $welcome_bonus = Charges::select('welcome_bonus')->first();
             Wallet::create([
@@ -121,7 +121,7 @@ class RegisterController extends Controller
 
         $curl = curl_init();
         curl_setopt_array($curl, array(
-            CURLOPT_URL => 'https://sandbox.monnify.com/api/v1/auth/login',
+            CURLOPT_URL => 'https://api.monnify.com/api/v1/auth/login',
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => '',
             CURLOPT_MAXREDIRS => 10,
@@ -186,7 +186,7 @@ class RegisterController extends Controller
 
         $curl = curl_init();
         curl_setopt_array($curl, array(
-            CURLOPT_URL => 'https://sandbox.monnify.com/api/v2/bank-transfer/reserved-accounts',
+            CURLOPT_URL => 'https://api.monnify.com/api/v2/bank-transfer/reserved-accounts',
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => '',
             CURLOPT_MAXREDIRS => 10,
