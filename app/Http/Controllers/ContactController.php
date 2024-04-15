@@ -12,9 +12,15 @@ class ContactController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $contacts = $user->contacts->sortBy(function ($contact) {
-            return strtolower($contact->name); 
-        });    
+    
+        // Check if user has contacts
+        if ($user->contacts()->exists()) {
+            // Use orderBy instead of sortBy for Eloquent collections
+            $contacts = $user->contacts()->orderBy('name', 'asc')->get();
+        } else {
+            $contacts = collect(); // Empty collection if user has no contacts
+        }
+    
         return view('contacts.index', ['contacts' => $contacts]);
     }
     

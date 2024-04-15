@@ -570,7 +570,7 @@ document.getElementById('number').addEventListener('input', function () {
                                 }
                             },
                             error: function(xhr, status, error) {
-                                // Handle the error response if needed
+                                
                                 // Example: Swal.fire('Error', 'An error occurred', 'error');
                             }
                         }).always(function() {
