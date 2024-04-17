@@ -27,7 +27,7 @@ class MonnifyController extends Controller
             $wallet = Wallet::where('user_id', $reservedAccount->user_id)->first();
 
             if ($wallet) {
-                $wallet->balance += $payload['eventData']['settlementAmount'];
+                $wallet->main_balance += $payload['eventData']['settlementAmount'];
                 $wallet->save();
 
                 MonnifyTransfer::create([
