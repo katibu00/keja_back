@@ -75,6 +75,8 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
 
 Route::post('/get-transfers',  [MonnifyController::class, 'getTransfers']);
 
+Route::post('/get-monnify-transfer',  [MonnifyController::class, 'getTransfers'])->name('get-monnify-transfer');
+
 Route::post('/webhook',  [MonnifyController::class, 'getTransfers']);
 
 Route::get('/add_money', function(){
@@ -164,6 +166,9 @@ Route::group(['prefix' => 'users', 'middleware' => ['auth', 'admin']], function 
     Route::delete('/{id}',  [UsersController::class, 'destroy'])->name('users.destroy');
 
     Route::post('/admin/submit',  [UsersController::class, 'storeAdmin'])->name('admin.store');
+
+    Route::get('/regular/search', [UsersController::class, 'search'])->name('users.search');
+
 
 });
 

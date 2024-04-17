@@ -19,6 +19,21 @@ class UsersController extends Controller
 
         return view('admin.users.regular.index', compact('users'));
     }
+
+    public function search(Request $request)
+    {
+        $search = $request->input('search');
+
+        // Query users based on name, phone number, or email
+        $users = User::where('name', 'like', "%$search%")
+                     ->orWhere('phone', 'like', "%$search%")
+                     ->orWhere('email', 'like', "%$search%")
+                     ->paginate(10); // Adjust the pagination as needed
+
+        // Pass the results to the view
+        return view('admin.users.regular.index', compact('users'));
+    }
+
     public function admins()
     {
         $users = User::where('user_type', 'admin')

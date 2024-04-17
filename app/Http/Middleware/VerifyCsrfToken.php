@@ -14,5 +14,6 @@ class VerifyCsrfToken extends Middleware
     protected $except = [
         '/get-transfers',
         '/webhook',
+        '/get-monnify-transfer',
     ];
 }

@@ -13,6 +13,8 @@ class MonnifyController extends Controller
 
     public function getTransfers(Request $request)
     {
+        Log::info('Webhook received', $request->all());
+
         $payload = $request->all();
         $paymentSourceInformation = $payload['eventData']['paymentSourceInformation'][0];
         $amountPaid = $paymentSourceInformation['amountPaid'];
