@@ -8,9 +8,7 @@
 
         <div class="container direction-rtl">
             <div class="card mb-3 text-center">
-                {{-- <div class="card-header bg-primary text-white">
-            <h4 class="my-0">User Balance</h4>
-          </div> --}}
+               
           <div class="card-body">
             <div class="row g-3">
                 <div class="col-md-6">
@@ -37,12 +35,53 @@
                 </div>
             </div>
         </div>
-        
-                {{-- <div class="card-footer text-muted">
-                    Updated just now
-                </div> --}}
             </div>
         </div>
+
+
+        <div class="container">
+            <div class="card bg-primary rounded-0 rounded-top">
+                <div class="card-body text-center py-3">
+                    <h6 class="mb-0 text-white line-height-1">Fund Your Wallet</h6>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+
+                    <div class="standard-tab">
+                        <ul class="nav rounded-lg mb-2 p-2 shadow-sm" id="affanTabs1" role="tablist">
+                            @foreach ($accounts as $index => $account)
+                                <li class="nav-item" role="presentation">
+                                    <button class="btn {{ $index === 0 ? 'active' : '' }}"
+                                        id="account-tab-{{ $index }}" data-bs-toggle="tab"
+                                        data-bs-target="#account-{{ $index }}" type="button" role="tab"
+                                        aria-controls="account-{{ $index }}"
+                                        aria-selected="{{ $index === 0 ? 'true' : 'false' }}">{{ $account['bankName'] }}</button>
+                                </li>
+                            @endforeach
+                        </ul>
+                        <div class="tab-content rounded-lg p-3 shadow-sm" id="affanTabs1Content">
+                            @foreach ($accounts as $index => $account)
+                                <div class="tab-pane fade {{ $index === 0 ? 'show active' : '' }}"
+                                    id="account-{{ $index }}" role="tabpanel"
+                                    aria-labelledby="account-tab-{{ $index }}">
+                                    <h6>{{ $account['bankName'] }}</h6>
+                                    <p class="mb-0">Account Number: {{ $account['accountNumber'] }}</p>
+                                    <p class="mb-0">Account Name: {{ $account['accountName'] }}</p>
+                                    <p class="mb-0">Charges: ₦50</p>
+                                    <button class="btn btn-sm btn-primary copy-btn"
+                                        data-clipboard-text="{{ $account['accountNumber'] }}" type="button"><i
+                                            class="bi bi-clipboard"></i> Copy Account Number</button>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="pb-3"></div>
+
 
         <div class="container direction-rtl">
             <div class="card mb-3">
@@ -218,48 +257,6 @@
         </div>
 
 
-        <div class="container">
-            <div class="card bg-primary rounded-0 rounded-top">
-                <div class="card-body text-center py-3">
-                    <h6 class="mb-0 text-white line-height-1">Fund Your Wallet</h6>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-body">
-
-
-                    <div class="standard-tab">
-                        <ul class="nav rounded-lg mb-2 p-2 shadow-sm" id="affanTabs1" role="tablist">
-                            @foreach ($accounts as $index => $account)
-                                <li class="nav-item" role="presentation">
-                                    <button class="btn {{ $index === 0 ? 'active' : '' }}"
-                                        id="account-tab-{{ $index }}" data-bs-toggle="tab"
-                                        data-bs-target="#account-{{ $index }}" type="button" role="tab"
-                                        aria-controls="account-{{ $index }}"
-                                        aria-selected="{{ $index === 0 ? 'true' : 'false' }}">{{ $account['bankName'] }}</button>
-                                </li>
-                            @endforeach
-                        </ul>
-                        <div class="tab-content rounded-lg p-3 shadow-sm" id="affanTabs1Content">
-                            @foreach ($accounts as $index => $account)
-                                <div class="tab-pane fade {{ $index === 0 ? 'show active' : '' }}"
-                                    id="account-{{ $index }}" role="tabpanel"
-                                    aria-labelledby="account-tab-{{ $index }}">
-                                    <h6>{{ $account['bankName'] }}</h6>
-                                    <p class="mb-0">Account Number: {{ $account['accountNumber'] }}</p>
-                                    <p class="mb-0">Account Name: {{ $account['accountName'] }}</p>
-                                    <p class="mb-0">Charges: 1%</p>
-                                    <button class="btn btn-sm btn-primary copy-btn"
-                                        data-clipboard-text="{{ $account['accountNumber'] }}" type="button"><i
-                                            class="bi bi-clipboard"></i> Copy Account Number</button>
-                                </div>
-                            @endforeach
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
 
 
         <div class="pb-3"></div>

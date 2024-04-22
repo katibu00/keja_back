@@ -74,7 +74,7 @@
                                 <h6>{{ $account['bankName'] }}</h6>
                                 <p class="mb-0">Account Number: {{ $account['accountNumber'] }}</p>
                                 <p class="mb-0">Account Name: {{ $account['accountName'] }}</p>
-                                <p class="mb-0">Charges: 1%</p>
+                                <p class="mb-0">Charges: ₦50</p>
                                 <button class="btn btn-sm btn-primary copy-btn" data-clipboard-text="{{ $account['accountNumber'] }}" type="button"><i class="bi bi-clipboard"></i> Copy Account Number</button>
                             </div>
                             @endforeach
