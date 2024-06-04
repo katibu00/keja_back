@@ -123,95 +123,61 @@ class HomeController extends Controller
 
 
     public function admin()
-{
-    $totalUsers = User::count();
-    $registeredToday = User::whereDate('created_at', today())->count();
-
-    $totalWalletBalance = Wallet::sum('main_balance');
-
-    $todayTotalFunding = FundingTransaction::whereDate('created_at', today())->sum('amount');
-    $TotalFunding = FundingTransaction::sum('amount');
-
-    $dataPurchases = PurchaseTransaction::where('purchase_type', 'data')
-        ->whereDate('created_at', today())
-        ->get();
-    $totalDataPurchaseInGB = 0;
-    foreach ($dataPurchases as $purchase) {
-        $dataPlan = DataPlan::where('plan_id', $purchase->data_plan_id)->first();
-        $totalDataPurchaseInGB += $dataPlan ? $this->decodeAmount($dataPlan->amount) : 0;
-    }
-
-    $todayAirtimePurchase = PurchaseTransaction::where('purchase_type', 'airtime')
-        ->whereDate('created_at', today())
-        ->sum('data_plan_id');
-
-    $newRegularUsers = User::whereDate('created_at', today())->where('user_type', 'regular')->get();
-
-    $startDate = Carbon::now()->subDays(15);
-    $endDate = Carbon::now();
-
-    // Data for the last 15 days
-    $dataPurchasesLast15Days = PurchaseTransaction::where('purchase_type', 'data')
-        ->whereBetween('created_at', [$startDate, $endDate])
-        ->get();
-
-    $dataPurchasesByDate = $dataPurchasesLast15Days->groupBy(function ($purchase) {
-        return $purchase->created_at->format('Y-m-d');
-    });
-
-    $dates = [];
-    $totalDataPurchaseInGB = [];
-
-    foreach ($dataPurchasesByDate as $date => $purchases) {
-        $dates[] = $date;
-        $totalPurchase = 0;
-        foreach ($purchases as $purchase) {
-            $dataPlan = DataPlan::where('plan_id', $purchase->data_plan_id)->first();
-            if ($dataPlan) {
-                $totalPurchase += $this->decodeAmount($dataPlan->amount);
+    {
+        $totalUsers = User::count();
+        $registeredToday = User::whereDate('created_at', today())->count();
+    
+        $totalWalletBalance = Wallet::sum('main_balance');
+    
+        $todayTotalFunding = FundingTransaction::whereDate('created_at', today())->sum('amount');
+        $TotalFunding = FundingTransaction::sum('amount');
+    
+        $dataPurchasesLast15Days = PurchaseTransaction::where('purchase_type', 'data')
+            ->whereBetween('created_at', [now()->subDays(15), now()])
+            ->get();
+    
+        $dataPurchasesByDate = $dataPurchasesLast15Days->groupBy(function ($purchase) {
+            return $purchase->created_at->format('Y-m-d');
+        });
+    
+        $dates = [];
+        $totalDataPurchaseInGB = [];
+    
+        foreach ($dataPurchasesByDate as $date => $purchases) {
+            $dates[] = $date;
+            $totalPurchase = 0;
+            foreach ($purchases as $purchase) {
+                $dataPlan = DataPlan::where('plan_id', $purchase->data_plan_id)->first();
+                if ($dataPlan) {
+                    $totalPurchase += $this->decodeAmount($dataPlan->amount);
+                }
             }
+            $totalDataPurchaseInGB[] = $totalPurchase;
         }
-        $totalDataPurchaseInGB[] = $totalPurchase;
+    
+        $fundingLast15Days = FundingTransaction::whereBetween('created_at', [now()->subDays(15), now()])
+            ->groupBy('date')
+            ->orderBy('date')
+            ->get([
+                \DB::raw('DATE(created_at) as date'),
+                \DB::raw('SUM(amount) as total_amount'),
+            ]);
+    
+        $registrationsLast15Days = User::whereBetween('created_at', [now()->subDays(15), now()])
+            ->groupBy('date')
+            ->orderBy('date')
+            ->get([
+                \DB::raw('DATE(created_at) as date'),
+                \DB::raw('COUNT(id) as total_users'),
+            ]);
+    
+        $dataPurchases = $dataPurchasesLast15Days->pluck('total_amount')->toArray();
+        $funding = $fundingLast15Days->pluck('total_amount')->toArray();
+        $registrations = $registrationsLast15Days->pluck('total_users')->toArray();
+    
+        return view('admin.home', compact('totalUsers', 'registeredToday', 'totalWalletBalance', 'todayTotalFunding', 'TotalFunding', 'totalDataPurchaseInGB', 'dates', 'dataPurchases', 'funding', 'registrations'));
     }
-
-    $fundingLast15Days = FundingTransaction::whereBetween('created_at', [$startDate, $endDate])
-        ->groupBy('date')
-        ->orderBy('date')
-        ->get([
-            \DB::raw('DATE(created_at) as date'),
-            \DB::raw('SUM(amount) as total_amount'),
-        ]);
-
-    $registrationsLast15Days = User::whereBetween('created_at', [$startDate, $endDate])
-        ->groupBy('date')
-        ->orderBy('date')
-        ->get([
-            \DB::raw('DATE(created_at) as date'),
-            \DB::raw('COUNT(id) as total_users'),
-        ]);
-
-    // Prepare data for Chart.js
-    $dates = [];
-    $dataPurchases = [];
-    $funding = [];
-    $registrations = [];
-
-    foreach ($dataPurchasesLast15Days as $dataPurchase) {
-        $dates[] = $dataPurchase->date;
-        $dataPurchases[] = $dataPurchase->total_amount;
-    }
-
-    foreach ($fundingLast15Days as $fund) {
-        $funding[] = $fund->total_amount;
-    }
-
-    foreach ($registrationsLast15Days as $registration) {
-        $registrations[] = $registration->total_users;
-    }
-
-    return view('admin.home', compact('totalUsers', 'registeredToday', 'totalWalletBalance', 'todayTotalFunding', 'TotalFunding', 'totalDataPurchaseInGB', 'todayAirtimePurchase', 'newRegularUsers', 'dates', 'dataPurchases', 'funding', 'registrations'));
-}
-
+    
 
     private function decodeAmount($amount)
     {
