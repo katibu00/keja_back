@@ -63,13 +63,27 @@ class HomeController extends Controller
     
         // Data for the last 15 days
         $dataPurchasesLast15Days = PurchaseTransaction::where('purchase_type', 'data')
-            ->whereBetween('created_at', [$startDate, $endDate])
-            ->groupBy('date')
-            ->orderBy('date')
-            ->get([
-                \DB::raw('DATE(created_at) as date'),
-                \DB::raw('SUM(amount) as total_amount')
-            ]);
+        ->whereBetween('created_at', [$startDate, $endDate])
+        ->get();
+
+    $dataPurchasesByDate = $dataPurchasesLast15Days->groupBy(function($purchase) {
+        return $purchase->created_at->format('Y-m-d');
+    });
+
+    $dates = [];
+    $totalDataPurchaseInGB = [];
+
+    foreach ($dataPurchasesByDate as $date => $purchases) {
+        $dates[] = $date;
+        $totalPurchase = 0;
+        foreach ($purchases as $purchase) {
+            $dataPlan = DataPlan::where('plan_id', $purchase->data_plan_id)->first();
+            if ($dataPlan) {
+                $totalPurchase += $this->decodeAmount($dataPlan->amount);
+            }
+        }
+        $totalDataPurchaseInGB[] = $totalPurchase;
+    }
     
         $fundingLast15Days = FundingTransaction::whereBetween('created_at', [$startDate, $endDate])
             ->groupBy('date')

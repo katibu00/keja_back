@@ -126,9 +126,10 @@
 @section('js')
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
-    var ctxDataPurchases = document.getElementById('dataPurchasesChart').getContext('2d');
     var ctxFunding = document.getElementById('fundingChart').getContext('2d');
     var ctxRegistrations = document.getElementById('registrationsChart').getContext('2d');
+
+    var ctxDataPurchases = document.getElementById('dataPurchasesChart').getContext('2d');
 
     var dataPurchasesChart = new Chart(ctxDataPurchases, {
         type: 'line',
@@ -136,7 +137,7 @@
             labels: @json($dates),
             datasets: [{
                 label: 'Data Purchases',
-                data: @json($dataPurchases),
+                data: @json($totalDataPurchaseInGB),
                 backgroundColor: 'rgba(75, 192, 192, 0.2)',
                 borderColor: 'rgba(75, 192, 192, 1)',
                 borderWidth: 1
