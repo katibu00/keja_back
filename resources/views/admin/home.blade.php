@@ -64,8 +64,12 @@
                             <i class="fa fa-database fa-2x opacity-25"></i>
                         </div>
                         <div>
-                            <div class="fs-3 fw-semibold">{{ @$totalDataPurchaseInGB }} GB</div>
-                            <div class="fs-sm fw-semibold text-uppercase text-muted">Today's Data Purchase</div>
+                          @if(!empty($totalDataPurchaseInGB))
+                          <div class="fs-3 fw-semibold">{{ $totalDataPurchaseInGB[0] }} GB</div>
+                      @else
+                          <div class="fs-3 fw-semibold">0 GB</div>
+                      @endif
+                         <div class="fs-sm fw-semibold text-uppercase text-muted">Today's Data Purchase</div>
                         </div>
                     </div>
                 </a>
