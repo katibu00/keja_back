@@ -11,6 +11,7 @@ use App\Models\PurchaseTransaction;
 use App\Models\ReservedAccount;
 use App\Models\User;
 use App\Models\Wallet;
+use Carbon\Carbon;
 
 class HomeController extends Controller
 {
@@ -56,9 +57,60 @@ class HomeController extends Controller
 
         $newRegularUsers = User::whereDate('created_at', today())->where('user_type', 'regular')->get();
 
-        return view('admin.home', compact('totalUsers','registeredToday', 'totalWalletBalance', 'todayTotalFunding', 'TotalFunding','totalDataPurchaseInGB', 'todayAirtimePurchase', 'newRegularUsers'));
-    }
 
+        $startDate = Carbon::now()->subDays(15);
+        $endDate = Carbon::now();
+    
+        // Data for the last 15 days
+        $dataPurchasesLast15Days = PurchaseTransaction::where('purchase_type', 'data')
+            ->whereBetween('created_at', [$startDate, $endDate])
+            ->groupBy('date')
+            ->orderBy('date')
+            ->get([
+                \DB::raw('DATE(created_at) as date'),
+                \DB::raw('SUM(amount) as total_amount')
+            ]);
+    
+        $fundingLast15Days = FundingTransaction::whereBetween('created_at', [$startDate, $endDate])
+            ->groupBy('date')
+            ->orderBy('date')
+            ->get([
+                \DB::raw('DATE(created_at) as date'),
+                \DB::raw('SUM(amount) as total_amount')
+            ]);
+    
+        $registrationsLast15Days = User::whereBetween('created_at', [$startDate, $endDate])
+            ->groupBy('date')
+            ->orderBy('date')
+            ->get([
+                \DB::raw('DATE(created_at) as date'),
+                \DB::raw('COUNT(id) as total_users')
+            ]);
+    
+        // Prepare data for Chart.js
+        $dates = [];
+        $dataPurchases = [];
+        $funding = [];
+        $registrations = [];
+    
+        foreach ($dataPurchasesLast15Days as $dataPurchase) {
+            $dates[] = $dataPurchase->date;
+            $dataPurchases[] = $dataPurchase->total_amount;
+        }
+    
+        foreach ($fundingLast15Days as $fund) {
+            $funding[] = $fund->total_amount;
+        }
+    
+        foreach ($registrationsLast15Days as $registration) {
+            $registrations[] = $registration->total_users;
+        }
+    
+        // return view('admin.home', compact());
+    
+
+        return view('admin.home', compact('totalUsers','registeredToday', 'totalWalletBalance', 'todayTotalFunding', 'TotalFunding','totalDataPurchaseInGB', 'todayAirtimePurchase', 'newRegularUsers','dates', 'dataPurchases', 'funding', 'registrations'));
+    }
 
     private function decodeAmount($amount)
     {

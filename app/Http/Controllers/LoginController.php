@@ -17,6 +17,40 @@ class LoginController extends Controller
         return view('auth.login');
     }
 
+    public function login(Request $request)
+    {
+        $request->validate([
+            'email_or_phone' => 'required',
+            'password' => 'required',
+        ]);
+
+        $credentials = $this->getCredentials($request);
+        $rememberMe = $request->filled('remember_me');
+
+        try {
+            if (Auth::attempt($credentials, $rememberMe)) {
+                if ($request->ajax()) {
+                    return response()->json(['success' => true, 'redirect_url' => $this->getRedirectUrl()]);
+                } else {
+                    return redirect()->route($this->getRedirectRoute());
+                }
+            } else {
+                throw ValidationException::withMessages([
+                    'login_error' => 'Invalid credentials.',
+                ]);
+            }
+        } catch (ValidationException $e) {
+            if ($request->ajax()) {
+                return response()->json(['success' => false, 'errors' => $e->errors()], 422);
+            } else {
+                return redirect()->back()->withErrors($e->errors())->withInput()->with('error_message', 'Invalid credentials.');
+            }
+        }
+    }
+
+
+
+
     // public function login(Request $request)
     // {
     //     $request->validate([
@@ -29,6 +63,29 @@ class LoginController extends Controller
 
     //     try {
     //         if (Auth::attempt($credentials, $rememberMe)) {
+    //             $user = Auth::user();
+
+    //             $reservedAccount = ReservedAccount::where('customer_email', $user->email)->first();
+                
+    //             // Check if the user has a reserved account
+    //             if (!$reservedAccount) {
+    //                 // Create reserved account for the user
+    //                 $accessToken = $this->getAccessToken();
+    //                 $monnifyReservedAccount = $this->createMonnifyReservedAccount($user, $accessToken, [
+    //                     'name' => $user->name, // You may need to adjust this depending on the data needed
+    //                     'phone' => $user->phone, // You may need to adjust this depending on the data needed
+    //                     'email' => $user->email, // You may need to adjust this depending on the data needed
+    //                 ]);
+
+    //                 ReservedAccount::create([
+    //                     'user_id' => $user->id,
+    //                     'account_reference' => $monnifyReservedAccount->accountReference,
+    //                     'customer_email' => $monnifyReservedAccount->customerEmail,
+    //                     'customer_name' => $monnifyReservedAccount->customerName,
+    //                     'accounts' => json_encode($monnifyReservedAccount->accounts),
+    //                 ]);
+    //             }
+
     //             if ($request->ajax()) {
     //                 return response()->json(['success' => true, 'redirect_url' => $this->getRedirectUrl()]);
     //             } else {
@@ -47,63 +104,6 @@ class LoginController extends Controller
     //         }
     //     }
     // }
-
-
-
-
-    public function login(Request $request)
-{
-    $request->validate([
-        'email_or_phone' => 'required',
-        'password' => 'required',
-    ]);
-
-    $credentials = $this->getCredentials($request);
-    $rememberMe = $request->filled('remember_me');
-
-    try {
-        if (Auth::attempt($credentials, $rememberMe)) {
-            $user = Auth::user();
-
-            $reservedAccount = ReservedAccount::where('customer_email', $user->email)->first();
-            
-            // Check if the user has a reserved account
-            if (!$reservedAccount) {
-                // Create reserved account for the user
-                $accessToken = $this->getAccessToken();
-                $monnifyReservedAccount = $this->createMonnifyReservedAccount($user, $accessToken, [
-                    'name' => $user->name, // You may need to adjust this depending on the data needed
-                    'phone' => $user->phone, // You may need to adjust this depending on the data needed
-                    'email' => $user->email, // You may need to adjust this depending on the data needed
-                ]);
-
-                ReservedAccount::create([
-                    'user_id' => $user->id,
-                    'account_reference' => $monnifyReservedAccount->accountReference,
-                    'customer_email' => $monnifyReservedAccount->customerEmail,
-                    'customer_name' => $monnifyReservedAccount->customerName,
-                    'accounts' => json_encode($monnifyReservedAccount->accounts),
-                ]);
-            }
-
-            if ($request->ajax()) {
-                return response()->json(['success' => true, 'redirect_url' => $this->getRedirectUrl()]);
-            } else {
-                return redirect()->route($this->getRedirectRoute());
-            }
-        } else {
-            throw ValidationException::withMessages([
-                'login_error' => 'Invalid credentials.',
-            ]);
-        }
-    } catch (ValidationException $e) {
-        if ($request->ajax()) {
-            return response()->json(['success' => false, 'errors' => $e->errors()], 422);
-        } else {
-            return redirect()->back()->withErrors($e->errors())->withInput()->with('error_message', 'Invalid credentials.');
-        }
-    }
-}
 
 
 

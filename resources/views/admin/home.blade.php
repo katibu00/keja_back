@@ -100,6 +100,20 @@
             </div>
         </a>
     </div>
+
+
+    <div class="row">
+      <div class="col-md-6">
+          <canvas id="dataPurchasesChart"></canvas>
+      </div>
+      <div class="col-md-6">
+          <canvas id="fundingChart"></canvas>
+      </div>
+      <div class="col-md-6">
+          <canvas id="registrationsChart"></canvas>
+      </div>
+  </div>
+
     
       
     </div>
@@ -107,4 +121,76 @@
   </div>
   
 </main>
+@endsection
+
+@section('js')
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    var ctxDataPurchases = document.getElementById('dataPurchasesChart').getContext('2d');
+    var ctxFunding = document.getElementById('fundingChart').getContext('2d');
+    var ctxRegistrations = document.getElementById('registrationsChart').getContext('2d');
+
+    var dataPurchasesChart = new Chart(ctxDataPurchases, {
+        type: 'line',
+        data: {
+            labels: @json($dates),
+            datasets: [{
+                label: 'Data Purchases',
+                data: @json($dataPurchases),
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+    var fundingChart = new Chart(ctxFunding, {
+        type: 'line',
+        data: {
+            labels: @json($dates),
+            datasets: [{
+                label: 'Total Funding',
+                data: @json($funding),
+                backgroundColor: 'rgba(255, 159, 64, 0.2)',
+                borderColor: 'rgba(255, 159, 64, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+    var registrationsChart = new Chart(ctxRegistrations, {
+        type: 'line',
+        data: {
+            labels: @json($dates),
+            datasets: [{
+                label: 'Registrations',
+                data: @json($registrations),
+                backgroundColor: 'rgba(153, 102, 255, 0.2)',
+                borderColor: 'rgba(153, 102, 255, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>
 @endsection
